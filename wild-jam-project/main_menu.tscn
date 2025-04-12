@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bnehdryqfnq3n"]
 
-[ext_resource type="Shader" path="res://scroll.gdshader" id="1_7vrkn"]
+[ext_resource type="Shader" uid="uid://do1o7me4dck4j" path="res://scroll.gdshader" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://bb7m1piqo72bv" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="Texture2D" uid="uid://bpm1nnycb0pr6" path="res://Background/Brown.png" id="2_fu7sn"]
 [ext_resource type="FontFile" uid="uid://cd5yrkkrr8dtp" path="res://fonts/Poppins/Poppins-Black.ttf" id="3_fu7sn"]
