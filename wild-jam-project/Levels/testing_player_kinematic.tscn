@@ -64,13 +64,13 @@ shape = SubResource("RectangleShape2D_h61g0")
 position = Vector2(-424, 32)
 node_a = NodePath("../CharacterBody2D")
 node_b = NodePath("../RigidBody2D")
-disable_collision = false
 angular_limit_enabled = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
 position = Vector2(-421, -18)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_h61g0")
+lock_rotation = true
 script = ExtResource("4_b6x16")
 metadata/_edit_group_ = true
 
