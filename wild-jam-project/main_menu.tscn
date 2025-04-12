@@ -63,7 +63,6 @@ texture = ExtResource("2_fu7sn")
 stretch_mode = 1
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -138,6 +137,7 @@ text = "Quit
 "
 
 [node name="SettingsMenu" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
