@@ -35,7 +35,6 @@ size = Vector2(180, 100)
 [node name="TestingLevel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5, 0)
 zoom = Vector2(0.32, 0.32)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -107,8 +106,8 @@ script = ExtResource("4_5i00d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/item_interact"]
 shape = SubResource("RectangleShape2D_07pr4")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1253, 221)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-183, 24)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
 script = ExtResource("5_etno1")
@@ -122,14 +121,14 @@ scale = Vector2(0.785, 0.785)
 texture = ExtResource("1_xaao8")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-1258, 172)
+position = Vector2(-188, -25)
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../RigidBody2D2")
 disable_collision = false
 softness = 1.04
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1252, 120)
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(-182, -77)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
 script = ExtResource("5_etno1")
@@ -143,14 +142,14 @@ scale = Vector2(1.39, 0.785)
 texture = ExtResource("1_xaao8")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2(-1256, 67)
+position = Vector2(-186, -130)
 node_a = NodePath("../RigidBody2D2")
 node_b = NodePath("../RigidBody2D3")
 disable_collision = false
 softness = 1.03
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1253, 18)
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(-183, -179)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
 script = ExtResource("5_etno1")
@@ -160,34 +159,6 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_5i00d")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(296, 175)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
-shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D4"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
-
-[node name="RigidBody2D5" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(123, 178)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
-shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
 scale = Vector2(0.785, 0.785)
 texture = ExtResource("1_xaao8")
 
