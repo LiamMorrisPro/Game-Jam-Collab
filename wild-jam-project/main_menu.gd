@@ -12,11 +12,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+    pass
 
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 
 func _on_options_pressed() -> void:
@@ -63,4 +63,3 @@ func _on_resolutions_item_selected(index: int) -> void:
             DisplayServer.window_set_size(Vector2i(1600,900))
         2:
             DisplayServer.window_set_size(Vector2i(1280,720))
-
