@@ -17,6 +17,7 @@ config/icon="res://Resources/icon.svg"
 
 [display]
 
+
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -59,6 +60,7 @@ interact={
 [physics]
 
 common/physics_interpolation=true
+
 
 [rendering]
 
