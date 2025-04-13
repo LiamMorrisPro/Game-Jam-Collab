@@ -19,6 +19,12 @@ config/icon="res://Resources/icon.svg"
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://scripts/": "red"
+}
+
 [global_group]
 
 Items=""

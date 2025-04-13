@@ -1,5 +1,6 @@
 extends Control
 
+@export var transit : SceneTransition
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,8 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-    pass # Replace with function body.
+    transit.Transition()
+    await transit.on_transition_finished
 
 
 func _on_options_pressed() -> void:
