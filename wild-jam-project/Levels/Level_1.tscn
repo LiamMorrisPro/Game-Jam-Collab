@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfj02nwpaloji"]
+
+[ext_resource type="PackedScene" uid="uid://bbmge1qvbt5le" path="res://UI/scene_transition.tscn" id="1_ka50d"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="SceneTransition" parent="." instance=ExtResource("1_ka50d")]

@@ -1,6 +1,5 @@
 extends Control
 
-@export var transit : SceneTransition
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,7 +7,7 @@ func _ready() -> void:
     $MainButtons.visible = true
     $CreditsMenu.visible = false
     $SettingsMenu.visible = false
-
+    $GameTitle.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,14 +16,14 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-    transit.Transition()
-    await transit.on_transition_finished
+    get_tree().change_scene_to_file("res://UI/level_selector_screen.tscn")
 
 
 func _on_options_pressed() -> void:
 
     $MainButtons.visible = false
     $SettingsMenu.visible = true
+    $GameTitle.visible = false
 
 
 func _on_quit_pressed() -> void:
@@ -34,13 +33,14 @@ func _on_quit_pressed() -> void:
 func _on_credits_pressed() -> void:
     $MainButtons.visible = false
     $CreditsMenu.visible = true
+    $GameTitle.visible = false
 
 
 func _on_back_pressed() -> void:
     $MainButtons.visible = true
     $CreditsMenu.visible = false
     $SettingsMenu.visible = false
-
+    $GameTitle.visible = true
 
 #func _on_full_screen_toggled(toggled_on: bool) -> void:
     #if !toggled_on:
@@ -60,7 +60,7 @@ func _on_mute_toggled(toggled_on: bool) -> void:
 func _on_resolutions_item_selected(index: int) -> void:
     match index:
         0:
-            DisplayServer.window_set_size(Vector2i(1920,1080))
+            DisplayServer.window_set_size(Vector2i(1980,1080))
         1:
             DisplayServer.window_set_size(Vector2i(1600,900))
         2:
