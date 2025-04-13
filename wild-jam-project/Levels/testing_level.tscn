@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci7ijq3uniuak"]
+[gd_scene load_steps=9 format=3 uid="uid://ci7ijq3uniuak"]
 
 [ext_resource type="Texture2D" uid="uid://bth72vdmbpyqc" path="res://Resources/icon.svg" id="1_xaao8"]
 [ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Player/player.tscn" id="2_eaqdo"]
+[ext_resource type="TileSet" uid="uid://c4oc3py5o8m0l" path="res://Resources/Tilesets/basic_tileset.tres" id="4_5i00d"]
 [ext_resource type="Script" uid="uid://b0ouk6o6kutx" path="res://scripts/Item.gd" id="5_etno1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5i00d"]
@@ -90,3 +91,6 @@ shape = SubResource("RectangleShape2D_5i00d")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
 scale = Vector2(0.785, 0.785)
 texture = ExtResource("1_xaao8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("4_5i00d")
