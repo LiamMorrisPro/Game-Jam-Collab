@@ -16,7 +16,7 @@ var item_interact_target : Vector2 = Vector2(13.0, 0.0)
 var player_speed : float = 5000.0
 var player_air_speed : float = 1000.0
 var jump_force : float = 250.0
-var max_speed : float = 100.0
+var max_speed : float = 75.0
 
 func _physics_process(delta: float) -> void:
 	
