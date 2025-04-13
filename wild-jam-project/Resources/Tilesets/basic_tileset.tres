@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c4oc3py5o8m0l"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://c4oc3py5o8m0l"]
 
 [ext_resource type="Texture2D" uid="uid://cdybbny8povyb" path="res://Resources/Assets/Mockup/improved texture 100.png" id="1_5oy38"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5oy38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oihse"]
 texture = ExtResource("1_5oy38")
@@ -104,4 +106,6 @@ texture = ExtResource("1_5oy38")
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_5oy38")
 sources/0 = SubResource("TileSetAtlasSource_oihse")

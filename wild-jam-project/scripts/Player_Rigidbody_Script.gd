@@ -15,7 +15,7 @@ var item_interact_target : Vector2 = Vector2(13.0, 0.0)
 
 var player_speed : float = 5000.0
 var player_air_speed : float = 1000.0
-var jump_force : float = 200.0
+var jump_force : float = 250.0
 var max_speed : float = 100.0
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
   
 	#change character facing direction
 	if input_direction.x != character_direction and input_direction.x != 0:
-		print("hi")
 		character_direction *= -1
 		item_interact_target *= -1
 		item_interact.position = item_interact_target
