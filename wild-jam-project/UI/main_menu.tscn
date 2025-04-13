@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bb7m1piqo72bv" path="res://scripts/UI/main_menu.gd" id="1_4cwpn"]
 [ext_resource type="Shader" uid="uid://do1o7me4dck4j" path="res://Shaders/scroll.gdshader" id="2_f40uw"]
 [ext_resource type="Texture2D" uid="uid://bpm1nnycb0pr6" path="res://Resources/Background/Brown.png" id="3_8ctay"]
-[ext_resource type="FontFile" uid="uid://cd5yrkkrr8dtp" path="res://Resources/fonts/Poppins/Poppins-Black.ttf" id="4_ev3b6"]
+[ext_resource type="FontFile" uid="uid://dvwd2jyhsoieg" path="res://Resources/fonts/Pixellari.ttf" id="4_4cwpn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jix8l"]
 shader = ExtResource("2_f40uw")
@@ -84,6 +84,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -98,6 +99,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -113,6 +115,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -128,6 +131,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -161,6 +165,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -171,7 +176,7 @@ text = "Back
 
 [node name="VolumeLabel" type="Label" parent="SettingsMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ev3b6")
+theme_override_fonts/font = ExtResource("4_4cwpn")
 text = "Volume"
 
 [node name="Volume" type="HSlider" parent="SettingsMenu"]
@@ -179,15 +184,16 @@ layout_mode = 2
 
 [node name="MuteLabel" type="Label" parent="SettingsMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ev3b6")
+theme_override_fonts/font = ExtResource("4_4cwpn")
 text = "Mute"
 
 [node name="Mute" type="CheckBox" parent="SettingsMenu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4cwpn")
 
 [node name="Resolutions" type="OptionButton" parent="SettingsMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ev3b6")
+theme_override_fonts/font = ExtResource("4_4cwpn")
 selected = 0
 item_count = 3
 popup/item_0/text = "1980x1080"
@@ -215,6 +221,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="CreditsMenu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 20
 text = "The people who made it:"
 horizontal_alignment = 1
@@ -229,6 +236,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -248,7 +256,7 @@ offset_bottom = 129.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("4_ev3b6")
+theme_override_fonts/font = ExtResource("4_4cwpn")
 theme_override_font_sizes/font_size = 60
 text = "GAME TITLE"
 horizontal_alignment = 1
