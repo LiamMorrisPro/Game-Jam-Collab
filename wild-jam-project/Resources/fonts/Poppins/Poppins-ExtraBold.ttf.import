@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c6gixsfbp04ng"
-path="res://.godot/imported/Poppins-MediumItalic.ttf-715092296b7f7f7dfc9a9b3830c79ce4.fontdata"
+uid="uid://cg8xte2apl0r0"
+path="res://.godot/imported/Poppins-ExtraBold.ttf-3854291cfed492ae2ee3962d61402c6c.fontdata"
 
 [deps]
 
-source_file="res://fonts/Poppins/Poppins-MediumItalic.ttf"
-dest_files=["res://.godot/imported/Poppins-MediumItalic.ttf-715092296b7f7f7dfc9a9b3830c79ce4.fontdata"]
+source_file="res://Resources/fonts/Poppins/Poppins-ExtraBold.ttf"
+dest_files=["res://.godot/imported/Poppins-ExtraBold.ttf-3854291cfed492ae2ee3962d61402c6c.fontdata"]
 
 [params]
 

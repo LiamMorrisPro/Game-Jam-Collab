@@ -1,9 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci7ijq3uniuak"]
+[gd_scene load_steps=8 format=3 uid="uid://ci7ijq3uniuak"]
 
-[ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/Player_Rigidbody_Script.gd" id="1_2jkhj"]
 [ext_resource type="Texture2D" uid="uid://bth72vdmbpyqc" path="res://Resources/icon.svg" id="1_xaao8"]
-[ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player_ground_detect.gd" id="3_eaqdo"]
-[ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/item_interact.gd" id="4_5i00d"]
+[ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Player/player.tscn" id="2_eaqdo"]
 [ext_resource type="Script" uid="uid://b0ouk6o6kutx" path="res://scripts/Item.gd" id="5_etno1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5i00d"]
@@ -11,26 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eaqdo"]
 size = Vector2(128.02, 127.771)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2jkhj"]
-friction = 30.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jkhj"]
-size = Vector2(130, 130)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy78r"]
-size = Vector2(124.45, 12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_07pr4"]
-size = Vector2(100, 100)
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eaqdo"]
 friction = 30.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i00d"]
 size = Vector2(100, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_etno1"]
-size = Vector2(180, 100)
 
 [node name="TestingLevel" type="Node2D"]
 
@@ -77,94 +60,11 @@ shape = SubResource("RectangleShape2D_eaqdo")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 texture = ExtResource("1_xaao8")
 
-[node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(-193, 154)
-collision_layer = 2
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_2jkhj")
-lock_rotation = true
-max_contacts_reported = 3
-script = ExtResource("1_2jkhj")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_xaao8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_2jkhj")
-
-[node name="ground_check" type="Area2D" parent="Player"]
-script = ExtResource("3_eaqdo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ground_check"]
-position = Vector2(0, 64)
-shape = SubResource("RectangleShape2D_jy78r")
-
-[node name="item_interact" type="Area2D" parent="Player"]
-position = Vector2(125, 0)
-script = ExtResource("4_5i00d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/item_interact"]
-shape = SubResource("RectangleShape2D_07pr4")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1253, 221)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-1258, 172)
-node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
-disable_collision = false
-softness = 1.04
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1252, 120)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-shape = SubResource("RectangleShape2D_etno1")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
-scale = Vector2(1.39, 0.785)
-texture = ExtResource("1_xaao8")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2(-1256, 67)
-node_a = NodePath("../RigidBody2D2")
-node_b = NodePath("../RigidBody2D3")
-disable_collision = false
-softness = 1.03
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1253, 18)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
-shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
+[node name="Player" parent="." instance=ExtResource("2_eaqdo")]
+position = Vector2(-1625, 354)
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(296, 175)
+position = Vector2(-1136, 375)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
 script = ExtResource("5_etno1")
@@ -178,7 +78,7 @@ scale = Vector2(0.785, 0.785)
 texture = ExtResource("1_xaao8")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(123, 178)
+position = Vector2(-1309, 378)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
 script = ExtResource("5_etno1")
@@ -190,8 +90,3 @@ shape = SubResource("RectangleShape2D_5i00d")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
 scale = Vector2(0.785, 0.785)
 texture = ExtResource("1_xaao8")
-
-[connection signal="body_entered" from="Player/ground_check" to="Player/ground_check" method="_on_body_entered"]
-[connection signal="body_exited" from="Player/ground_check" to="Player/ground_check" method="_on_body_exited"]
-[connection signal="body_entered" from="Player/item_interact" to="Player/item_interact" method="_on_body_entered"]
-[connection signal="body_exited" from="Player/item_interact" to="Player/item_interact" method="_on_body_exited"]

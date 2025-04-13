@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://3jq106je8tdx"
-path="res://.godot/imported/Poppins-SemiBoldItalic.ttf-2aaf0edcbec85b32393240057c484d8f.fontdata"
+uid="uid://b5cik548kn028"
+path="res://.godot/imported/Poppins-Italic.ttf-e3815c6936834b4e16b28c4923e1a2d1.fontdata"
 
 [deps]
 
-source_file="res://fonts/Poppins/Poppins-SemiBoldItalic.ttf"
-dest_files=["res://.godot/imported/Poppins-SemiBoldItalic.ttf-2aaf0edcbec85b32393240057c484d8f.fontdata"]
+source_file="res://Resources/fonts/Poppins/Poppins-Italic.ttf"
+dest_files=["res://.godot/imported/Poppins-Italic.ttf-e3815c6936834b4e16b28c4923e1a2d1.fontdata"]
 
 [params]
 
