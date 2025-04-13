@@ -11,44 +11,44 @@ var is_jumping : bool
 var is_falling : bool
 var is_on_ground : bool
 var character_direction : int = 1 #1 = forward, -1 = backward
-var item_interact_target : Vector2 = Vector2(125.0, 0.0)
+var item_interact_target : Vector2 = Vector2(13.0, 0.0)
 
 var player_speed : float = 5000.0
 var player_air_speed : float = 1000.0
-var jump_force : float = 600.0
-var max_speed : float = 200.0
+var jump_force : float = 200.0
+var max_speed : float = 100.0
 
 func _physics_process(delta: float) -> void:
-    
-    #handle inputs
-    input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"))
-    is_jumping = Input.is_action_just_pressed("jump")
+	
+	#handle inputs
+	input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"))
+	is_jumping = Input.is_action_just_pressed("jump")
   
-    #change character facing direction
-    if input_direction.x != character_direction and input_direction.x != 0:
-        print("hi")
-        character_direction *= -1
-        item_interact_target *= -1
-        item_interact.position = item_interact_target
+	#change character facing direction
+	if input_direction.x != character_direction and input_direction.x != 0:
+		print("hi")
+		character_direction *= -1
+		item_interact_target *= -1
+		item_interact.position = item_interact_target
   
-    #check if on ground
-    if ground_check.collider_list != []:
-        is_on_ground = true
-    else:
-        is_on_ground = false
-    
-    #jumping
-    if is_jumping and is_on_ground == true:
-        apply_central_impulse(Vector2(0,-jump_force))
-    
-    #horizontal movement
-    if input_direction.x != 0 and is_on_ground == true:
-        apply_central_force(Vector2(input_direction.x * player_speed, 0))
-    elif input_direction.x != 0:
-        apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
+	#check if on ground
+	if ground_check.collider_list != []:
+		is_on_ground = true
+	else:
+		is_on_ground = false
+	
+	#jumping
+	if is_jumping and is_on_ground == true:
+		apply_central_impulse(Vector2(0,-jump_force))
+	
+	#horizontal movement
+	if input_direction.x != 0 and is_on_ground == true:
+		apply_central_force(Vector2(input_direction.x * player_speed, 0))
+	elif input_direction.x != 0:
+		apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
 
 
 func _integrate_forces(state):
-    
-    if state.linear_velocity.x > max_speed || state.linear_velocity.x < -max_speed:
-        state.linear_velocity.x = max_speed * input_direction.x
+	
+	if state.linear_velocity.x > max_speed || state.linear_velocity.x < -max_speed:
+		state.linear_velocity.x = max_speed * input_direction.x
