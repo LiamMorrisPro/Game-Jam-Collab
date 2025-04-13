@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmbtcmsr8ypli"
-path="res://.godot/imported/Poppins-ExtraBoldItalic.ttf-8544a38f1c3f241008237923889cbd11.fontdata"
+uid="uid://cd5yrkkrr8dtp"
+path="res://.godot/imported/Poppins-Black.ttf-0ed0984d77bc4b7a6a055f5bc984f926.fontdata"
 
 [deps]
 
-source_file="res://fonts/Poppins/Poppins-ExtraBoldItalic.ttf"
-dest_files=["res://.godot/imported/Poppins-ExtraBoldItalic.ttf-8544a38f1c3f241008237923889cbd11.fontdata"]
+source_file="res://Resources/fonts/Poppins/Poppins-Black.ttf"
+dest_files=["res://.godot/imported/Poppins-Black.ttf-0ed0984d77bc4b7a6a055f5bc984f926.fontdata"]
 
 [params]
 
