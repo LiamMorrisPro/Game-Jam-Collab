@@ -13,7 +13,7 @@ var is_on_ground : bool
 var character_direction : int = 1 #1 = forward, -1 = backward
 var item_interact_target : Vector2 = Vector2(13.0, 0.0)
 
-var player_speed : float = 5000.0
+var player_speed : float = 3000.0
 var player_air_speed : float = 1000.0
 var jump_force : float = 250.0
 var max_speed : float = 75.0
