@@ -1,92 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci7ijq3uniuak"]
+[gd_scene load_steps=6 format=4 uid="uid://ci7ijq3uniuak"]
 
-[ext_resource type="Texture2D" uid="uid://bth72vdmbpyqc" path="res://Resources/icon.svg" id="1_xaao8"]
 [ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Player/player.tscn" id="2_eaqdo"]
-[ext_resource type="Script" uid="uid://b0ouk6o6kutx" path="res://scripts/Item.gd" id="5_etno1"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5i00d"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eaqdo"]
-size = Vector2(128.02, 127.771)
+[ext_resource type="Texture2D" uid="uid://dccvnad4m7du2" path="res://Resources/Background/Yellow.png" id="3_eaqdo"]
+[ext_resource type="TileSet" uid="uid://c4oc3py5o8m0l" path="res://Resources/Tilesets/basic_tileset.tres" id="4_5i00d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eaqdo"]
 friction = 30.0
+rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i00d"]
-size = Vector2(100, 100)
+size = Vector2(10, 10)
 
 [node name="TestingLevel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, 0)
-zoom = Vector2(0.32, 0.32)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-1123, 747)
-scale = Vector2(10.5, 4.015)
-physics_material_override = SubResource("PhysicsMaterial_5i00d")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.249066, 0.373589)
-shape = SubResource("RectangleShape2D_eaqdo")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_xaao8")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(206, 747)
-scale = Vector2(10.5, 4.015)
-physics_material_override = SubResource("PhysicsMaterial_5i00d")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-0.249066, 0.373589)
-shape = SubResource("RectangleShape2D_eaqdo")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-texture = ExtResource("1_xaao8")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(1409, 641)
-scale = Vector2(10.5, 4.015)
-physics_material_override = SubResource("PhysicsMaterial_5i00d")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-0.249066, 0.373589)
-shape = SubResource("RectangleShape2D_eaqdo")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-texture = ExtResource("1_xaao8")
+zoom = Vector2(6, 6)
 
 [node name="Player" parent="." instance=ExtResource("2_eaqdo")]
-position = Vector2(-1625, 354)
+position = Vector2(-129, 56)
+collision_priority = 10.0
 
-[node name="RigidBody2D4" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1136, 375)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD3/wQAAAACAAEAAAD4/wQAAAACAAEAAAD5/wQAAAACAAEAAAD6/wQAAAACAAEAAAD7/wQAAAACAAEAAAD8/wQAAAACAAEAAAD9/wQAAAACAAEAAAD+/wQAAAACAAEAAAD//wQAAAACAAEAAAAAAAQAAAACAAEAAAABAAQAAAACAAEAAAACAAQAAAACAAEAAAADAAQAAAACAAEAAAAEAAQAAAACAAEAAAAFAAQAAAACAAEAAAAGAAQAAAACAAEAAAAHAAQAAAACAAEAAAAIAAQAAAACAAEAAAD2/wQAAAABAAEAAAD2/wUAAAABAAIAAAAJAAQAAAADAAEAAAAJAAUAAAADAAIAAAD3/wUAAAACAAIAAAD4/wUAAAACAAIAAAD5/wUAAAACAAIAAAD6/wUAAAACAAIAAAD7/wUAAAACAAIAAAD8/wUAAAACAAIAAAD9/wUAAAACAAIAAAD+/wUAAAACAAIAAAD//wUAAAACAAIAAAAAAAUAAAACAAIAAAABAAUAAAACAAIAAAACAAUAAAACAAIAAAADAAUAAAACAAIAAAAEAAUAAAACAAIAAAAFAAUAAAACAAIAAAAGAAUAAAACAAIAAAAHAAUAAAACAAIAAAAIAAUAAAACAAIAAAD2/wYAAAACAAIAAAD3/wYAAAACAAIAAAD4/wYAAAACAAIAAAD5/wYAAAACAAIAAAD6/wYAAAACAAIAAAD7/wYAAAACAAIAAAD8/wYAAAACAAIAAAD9/wYAAAACAAIAAAD+/wYAAAACAAIAAAD//wYAAAACAAIAAAAAAAYAAAACAAIAAAABAAYAAAACAAIAAAACAAYAAAACAAIAAAADAAYAAAACAAIAAAAEAAYAAAACAAIAAAAFAAYAAAACAAIAAAAGAAYAAAACAAIAAAAHAAYAAAACAAIAAAAIAAYAAAACAAIAAAAJAAYAAAACAAIAAAD//wMAAAAEAAEAAAD1/wIAAAAEAAEAAAA=")
+tile_set = ExtResource("4_5i00d")
+collision_visibility_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
+position = Vector2(-129, 42)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("3_eaqdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D4"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
-
-[node name="RigidBody2D5" type="RigidBody2D" parent="." groups=["Items"]]
-position = Vector2(-1309, 378)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-script = ExtResource("5_etno1")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
-shape = SubResource("RectangleShape2D_5i00d")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
-scale = Vector2(0.785, 0.785)
-texture = ExtResource("1_xaao8")
