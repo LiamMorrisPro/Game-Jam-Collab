@@ -1,5 +1,7 @@
 extends Node
 
+@onready var transit: SceneTransition = $SceneTransition
+const level_select = "res://UI/level_selector_screen.tscn"
 
 #ui dependencies
 @onready var minute_label: Label = $GameUI/Level_UI/ColorRect/HBoxContainer/minute_label
@@ -8,8 +10,6 @@ extends Node
 
 @onready var level_ui: Control = $GameUI/Level_UI
 @onready var win_screen: Control = $GameUI/Win_Screen
-
-
 
 #timer 
 var time_taken : float
@@ -50,4 +50,9 @@ func level_clear():
 	print("cleared")
 	timer_on = false
 	win_screen.visible = true
-	
+	back_to_level_select()
+
+func back_to_level_select():
+	transit.Transition()
+	await transit.on_transition_finished
+	get_tree().change_scene_to_file(level_select)

@@ -19,20 +19,15 @@ var player_air_speed : float = 1000.0
 var jump_force : float = 250.0
 var max_speed : float = 75.0
 
+#coyote time
+@onready var coyote_timer: Timer = $CoyoteTimer
+var coyote_frames = 6
+var coyote = false
+var last_floor = false
+
+
 func _physics_process(delta: float) -> void:
 	
-	#handle inputs
-	input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"))
-	is_jumping = Input.is_action_just_pressed("jump")
-  
-	#change character facing direction
-	if input_direction.x != character_direction and input_direction.x != 0:
-		sprite_2d.scale.x *= -1
-		character_direction *= -1
-		item_kick_target *= -1
-		item_kick.position = item_kick_target
-		item_throw.throw_force_forward *= -1
-  
 	#check if on ground
 	if ground_check.collider_list != []:
 		is_on_ground = true
@@ -41,8 +36,25 @@ func _physics_process(delta: float) -> void:
 		is_on_ground = false
 		physics_material_override.friction = 0.0
 	
+	#handle inputs
+	input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"))
+	is_jumping = Input.is_action_just_pressed("jump")
+	
+	#coyote time
+	if !is_on_ground and last_floor and !is_jumping:
+		coyote = true
+		coyote_timer.start()
+	
+	#change character facing direction
+	if input_direction.x != character_direction and input_direction.x != 0:
+		sprite_2d.scale.x *= -1
+		character_direction *= -1
+		item_kick_target *= -1
+		item_kick.position = item_kick_target
+		item_throw.throw_force_forward *= -1
+		
 	#jumping
-	if is_jumping and is_on_ground == true:
+	if is_jumping and is_on_ground == true || is_jumping and coyote:
 		apply_central_impulse(Vector2(0,-jump_force))
 	
 	#horizontal movement
@@ -51,6 +63,7 @@ func _physics_process(delta: float) -> void:
 	elif input_direction.x != 0:
 		apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
 	
+	last_floor = is_on_ground
 
 
 
@@ -58,3 +71,7 @@ func _integrate_forces(state):
 	
 	if state.linear_velocity.x > max_speed || state.linear_velocity.x < -max_speed:
 		state.linear_velocity.x = max_speed * input_direction.x
+
+
+func _on_coyote_timer_timeout() -> void:
+	coyote = false

@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 
 func _throw_items():
 	for item in items_in_reach:
+		item.linear_velocity = player.linear_velocity
 		item.global_position = flip_target.global_position
 		pass
 

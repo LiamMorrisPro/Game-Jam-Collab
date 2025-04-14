@@ -70,6 +70,10 @@ shape = SubResource("RectangleShape2D_3smsa")
 [node name="Marker2D" type="Marker2D" parent="item_flip"]
 position = Vector2(0, -28)
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="ground_check" to="ground_check" method="_on_body_entered"]
 [connection signal="body_exited" from="ground_check" to="ground_check" method="_on_body_exited"]
 [connection signal="body_entered" from="item_kick" to="item_kick" method="_on_body_entered"]
@@ -78,3 +82,4 @@ position = Vector2(0, -28)
 [connection signal="body_exited" from="item_throw" to="item_throw" method="_on_body_exited"]
 [connection signal="body_entered" from="item_flip" to="item_flip" method="_on_body_entered"]
 [connection signal="body_exited" from="item_flip" to="item_flip" method="_on_body_exited"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
