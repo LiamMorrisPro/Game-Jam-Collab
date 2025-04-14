@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2b8sx0wbdwsf"]
 
 [ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
-[ext_resource type="Texture2D" uid="uid://bhyv1khp10ril" path="res://Resources/Assets/Mockup/character.png" id="2_gwnis"]
+[ext_resource type="Texture2D" uid="uid://dyx37sdtgakc" path="res://Resources/Assets/Characters/characters 100.png" id="2_gwnis"]
 [ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player/player_ground_detect.gd" id="3_fhl08"]
 [ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/player/item_kick.gd" id="4_vtle1"]
 
@@ -27,6 +27,8 @@ script = ExtResource("1_gwnis")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_gwnis")
+hframes = 13
+vframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
