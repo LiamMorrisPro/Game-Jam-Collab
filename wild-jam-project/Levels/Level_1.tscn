@@ -10,7 +10,8 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_43ny2")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("mailbox") instance=ExtResource("1_43ny2")]
+mailbox = NodePath("../Mailbox")
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_ka50d")]
 
@@ -37,7 +38,7 @@ position = Vector2(-121, 79)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(0, 28.325)
-zoom = Vector2(6.23, 6.23)
+zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 script = ExtResource("3_waoec")
 follow_target = NodePath("../Player")
