@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://x3ygjb8d136g" path="res://scripts/game_manager.gd" id="1_e5fcp"]
 [ext_resource type="FontFile" uid="uid://dvwd2jyhsoieg" path="res://Resources/fonts/Pixellari.ttf" id="2_sq00h"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("mailbox")]
+[node name="GameManager" type="Node"]
 script = ExtResource("1_e5fcp")
-mailbox = NodePath("")
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="Level_UI" type="Control" parent="GameUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,3 +53,40 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_sq00h")
 theme_override_font_sizes/font_size = 80
 text = "00"
+
+[node name="Win_Screen" type="Control" parent="GameUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/Win_Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 250)
+color = Color(0, 0, 0, 0.45098)
+
+[node name="Delivered" type="Label" parent="GameUI/Win_Screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 32.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 71
+text = "DELIVERED!"
+horizontal_alignment = 1

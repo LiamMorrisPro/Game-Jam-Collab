@@ -6,6 +6,9 @@ extends Node
 @onready var second_label: Label = $GameUI/Level_UI/ColorRect/HBoxContainer/second_label
 @onready var msec_label: Label = $GameUI/Level_UI/ColorRect/HBoxContainer/msec_label
 
+@onready var level_ui: Control = $GameUI/Level_UI
+@onready var win_screen: Control = $GameUI/Win_Screen
+
 
 
 #timer 
@@ -22,8 +25,11 @@ var timer_on : bool = true
 
 
 
+
 #start a timer on level start
 func _ready() -> void:
+	win_screen.visible = false
+	level_ui.visible = true
 	mailbox.parcel_delivered.connect(self.level_clear)
 
 func _process(delta: float) -> void:
@@ -43,4 +49,5 @@ func _process(delta: float) -> void:
 func level_clear():
 	print("cleared")
 	timer_on = false
+	win_screen.visible = true
 	
