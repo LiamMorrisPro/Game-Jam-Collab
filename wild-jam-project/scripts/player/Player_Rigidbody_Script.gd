@@ -2,11 +2,10 @@ extends RigidBody2D
 class_name Player
 
 @onready var ground_check: ground_check_area = $ground_check
-@onready var item_kick: Area2D = $item_kick
+@onready var item_kick: ItemKick = $item_kick
+@onready var item_throw: ItemThrow = $item_throw
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
-
 
 var input_direction : Vector2
 var is_jumping : bool
@@ -32,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		character_direction *= -1
 		item_kick_target *= -1
 		item_kick.position = item_kick_target
+		item_throw.throw_force_forward *= -1
   
 	#check if on ground
 	if ground_check.collider_list != []:
