@@ -3,6 +3,7 @@ class_name Player
 
 @onready var ground_check: ground_check_area = $ground_check
 @onready var item_interact: Area2D = $item_interact
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 
@@ -26,6 +27,7 @@ func _physics_process(delta: float) -> void:
   
 	#change character facing direction
 	if input_direction.x != character_direction and input_direction.x != 0:
+		sprite_2d.scale.x *= -1
 		character_direction *= -1
 		item_interact_target *= -1
 		item_interact.position = item_interact_target

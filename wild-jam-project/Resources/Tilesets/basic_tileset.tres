@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cdybbny8povyb" path="res://Resources/Assets/Mockup/improved texture 100.png" id="1_5oy38"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5oy38"]
+friction = 0.5
+bounce = 0.04
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oihse"]
 texture = ExtResource("1_5oy38")

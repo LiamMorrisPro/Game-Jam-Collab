@@ -25,6 +25,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Levels/": "yellow",
+"res://Player/": "teal",
 "res://Resources/": "gray",
 "res://Shaders/": "blue",
 "res://UI/": "green",
