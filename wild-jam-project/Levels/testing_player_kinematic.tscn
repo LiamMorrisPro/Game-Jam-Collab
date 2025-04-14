@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bth72vdmbpyqc" path="res://Resources/icon.svg" id="1_1kmxr"]
 [ext_resource type="Script" uid="uid://dtftmr6qlus67" path="res://scripts/kinematic character controller/Player_Kinematic_Script.gd" id="2_s0nyt"]
-[ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player_ground_detect.gd" id="3_b6x16"]
+[ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player/player_ground_detect.gd" id="3_b6x16"]
 [ext_resource type="Script" uid="uid://b0ouk6o6kutx" path="res://scripts/Item.gd" id="4_b6x16"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llqp6"]

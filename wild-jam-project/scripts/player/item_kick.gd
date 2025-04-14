@@ -1,17 +1,18 @@
 extends Area2D
+class_name ItemKick
 
 var items_in_reach : Array[RigidBody2D] = []
-var throw_force = 400.0
+var throw_force_up = 400.0
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and items_in_reach != []:
+	if Input.is_action_just_pressed("kick") and items_in_reach != []:
 		_throw_items()
 
 
 func _throw_items():
 	for item in items_in_reach:
-		item.apply_central_impulse(Vector2(0,-throw_force))
+		item.apply_central_impulse(Vector2(0,-throw_force_up))
 		pass
 
 

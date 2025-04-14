@@ -1,17 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2b8sx0wbdwsf"]
+[gd_scene load_steps=10 format=3 uid="uid://d2b8sx0wbdwsf"]
 
-[ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/Player_Rigidbody_Script.gd" id="1_gwnis"]
-[ext_resource type="Texture2D" uid="uid://bhyv1khp10ril" path="res://Resources/Assets/Mockup/character.png" id="2_gwnis"]
-[ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player_ground_detect.gd" id="3_fhl08"]
-[ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/item_interact.gd" id="4_vtle1"]
+[ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
+[ext_resource type="Texture2D" uid="uid://dyx37sdtgakc" path="res://Resources/Assets/Characters/characters 100.png" id="2_gwnis"]
+[ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player/player_ground_detect.gd" id="3_fhl08"]
+[ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/player/item_kick.gd" id="4_vtle1"]
+[ext_resource type="Script" uid="uid://222b1fgsv8oq" path="res://scripts/player/item_throw.gd" id="5_k53q1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2jkhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(12, 15)
+size = Vector2(14, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy78r"]
-size = Vector2(8, 2)
+size = Vector2(12, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07pr4"]
 size = Vector2(10, 10)
@@ -27,6 +28,8 @@ script = ExtResource("1_gwnis")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_gwnis")
+hframes = 13
+vframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -39,14 +42,23 @@ script = ExtResource("3_fhl08")
 position = Vector2(0, 7.765)
 shape = SubResource("RectangleShape2D_jy78r")
 
-[node name="item_interact" type="Area2D" parent="."]
+[node name="item_kick" type="Area2D" parent="."]
 position = Vector2(13, 0)
 script = ExtResource("4_vtle1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="item_interact"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_kick"]
+shape = SubResource("RectangleShape2D_07pr4")
+
+[node name="item_throw" type="Area2D" parent="."]
+position = Vector2(0, -13)
+script = ExtResource("5_k53q1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_throw"]
 shape = SubResource("RectangleShape2D_07pr4")
 
 [connection signal="body_entered" from="ground_check" to="ground_check" method="_on_body_entered"]
 [connection signal="body_exited" from="ground_check" to="ground_check" method="_on_body_exited"]
-[connection signal="body_entered" from="item_interact" to="item_interact" method="_on_body_entered"]
-[connection signal="body_exited" from="item_interact" to="item_interact" method="_on_body_exited"]
+[connection signal="body_entered" from="item_kick" to="item_kick" method="_on_body_entered"]
+[connection signal="body_exited" from="item_kick" to="item_kick" method="_on_body_exited"]
+[connection signal="body_entered" from="item_throw" to="item_throw" method="_on_body_entered"]
+[connection signal="body_exited" from="item_throw" to="item_throw" method="_on_body_exited"]
