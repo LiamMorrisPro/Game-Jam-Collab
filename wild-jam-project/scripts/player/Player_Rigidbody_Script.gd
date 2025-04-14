@@ -2,7 +2,8 @@ extends RigidBody2D
 class_name Player
 
 @onready var ground_check: ground_check_area = $ground_check
-@onready var item_interact: Area2D = $item_interact
+@onready var item_kick: Area2D = $item_kick
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
@@ -12,7 +13,7 @@ var is_jumping : bool
 var is_falling : bool
 var is_on_ground : bool
 var character_direction : int = 1 #1 = forward, -1 = backward
-var item_interact_target : Vector2 = Vector2(13.0, 0.0)
+var item_kick_target : Vector2 = Vector2(13.0, 0.0)
 
 var player_speed : float = 3000.0
 var player_air_speed : float = 1000.0
@@ -29,8 +30,8 @@ func _physics_process(delta: float) -> void:
 	if input_direction.x != character_direction and input_direction.x != 0:
 		sprite_2d.scale.x *= -1
 		character_direction *= -1
-		item_interact_target *= -1
-		item_interact.position = item_interact_target
+		item_kick_target *= -1
+		item_kick.position = item_kick_target
   
 	#check if on ground
 	if ground_check.collider_list != []:

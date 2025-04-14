@@ -1,11 +1,11 @@
 extends Area2D
 
 var items_in_reach : Array[RigidBody2D] = []
-var throw_force = 400.0
+var throw_force = 300.0
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and items_in_reach != []:
+	if Input.is_action_just_pressed("kick") and items_in_reach != []:
 		_throw_items()
 
 
