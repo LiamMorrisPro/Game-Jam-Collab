@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbmge1qvbt5le" path="res://UI/scene_transition.tscn" id="1_ka50d"]
 [ext_resource type="TileSet" uid="uid://c4oc3py5o8m0l" path="res://Resources/Tilesets/basic_tileset.tres" id="2_8a5oj"]
-[ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Player/player.tscn" id="3_nl7va"]
+[ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Scenes/player.tscn" id="3_nl7va"]
 [ext_resource type="Script" uid="uid://cuu6vy3ci6iex" path="res://scripts/CameraController.gd" id="3_waoec"]
 [ext_resource type="Texture2D" uid="uid://ctoyu7bb4njh7" path="res://Resources/Assets/Objects/boxes 100.png" id="5_wsn87"]
 
@@ -26,19 +26,19 @@ follow_target = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("3_nl7va")]
 position = Vector2(-159, 75)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
+[node name="Box" type="RigidBody2D" parent="." groups=["Items"]]
 position = Vector2(-120, 77)
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_ntpbt")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
 texture_filter = 1
 texture = ExtResource("5_wsn87")
 hframes = 13
 vframes = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 shape = SubResource("RectangleShape2D_43ny2")
 
 [node name="TileMap" type="Node2D" parent="."]
