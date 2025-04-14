@@ -9,11 +9,11 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2jkhj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(14, 15)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_x3wgy"]
+points = PackedVector2Array(6, -8, 6, 4, 5.25, 5.3, 4.1, 6.45, 3, 7, -3, 7, -4.1, 6.45, -5.25, 5.3, -6, 4, -6, -8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy78r"]
-size = Vector2(12, 2)
+size = Vector2(5.64, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07pr4"]
 size = Vector2(10, 10)
@@ -35,9 +35,9 @@ texture = ExtResource("2_gwnis")
 hframes = 13
 vframes = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_gwnis")
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("ConvexPolygonShape2D_x3wgy")
 
 [node name="ground_check" type="Area2D" parent="."]
 script = ExtResource("3_fhl08")
@@ -53,12 +53,20 @@ script = ExtResource("4_vtle1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_kick"]
 shape = SubResource("RectangleShape2D_07pr4")
 
+[node name="kick_timer" type="Timer" parent="item_kick"]
+wait_time = 0.1
+one_shot = true
+
 [node name="item_throw" type="Area2D" parent="."]
 position = Vector2(0, -13)
 script = ExtResource("5_k53q1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_throw"]
 shape = SubResource("RectangleShape2D_07pr4")
+
+[node name="throw_timer" type="Timer" parent="item_throw"]
+wait_time = 0.1
+one_shot = true
 
 [node name="item_flip" type="Area2D" parent="."]
 position = Vector2(0, 13)
@@ -70,16 +78,27 @@ shape = SubResource("RectangleShape2D_3smsa")
 [node name="Marker2D" type="Marker2D" parent="item_flip"]
 position = Vector2(0, -28)
 
+[node name="flip_timer" type="Timer" parent="item_flip"]
+wait_time = 0.1
+
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="body_entered" from="ground_check" to="ground_check" method="_on_body_entered"]
 [connection signal="body_exited" from="ground_check" to="ground_check" method="_on_body_exited"]
 [connection signal="body_entered" from="item_kick" to="item_kick" method="_on_body_entered"]
 [connection signal="body_exited" from="item_kick" to="item_kick" method="_on_body_exited"]
+[connection signal="timeout" from="item_kick/kick_timer" to="item_kick" method="_on_kick_timer_timeout"]
 [connection signal="body_entered" from="item_throw" to="item_throw" method="_on_body_entered"]
 [connection signal="body_exited" from="item_throw" to="item_throw" method="_on_body_exited"]
+[connection signal="timeout" from="item_throw/throw_timer" to="item_throw" method="_on_throw_timer_timeout"]
 [connection signal="body_entered" from="item_flip" to="item_flip" method="_on_body_entered"]
 [connection signal="body_exited" from="item_flip" to="item_flip" method="_on_body_exited"]
+[connection signal="timeout" from="item_flip/flip_timer" to="item_flip" method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

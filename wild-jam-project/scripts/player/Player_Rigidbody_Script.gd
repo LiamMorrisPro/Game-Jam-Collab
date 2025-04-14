@@ -2,8 +2,10 @@ extends RigidBody2D
 class_name Player
 
 @onready var ground_check: ground_check_area = $ground_check
+
 @onready var item_kick: ItemKick = $item_kick
 @onready var item_throw: ItemThrow = $item_throw
+@onready var item_flip: Area2D = $item_flip
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -11,8 +13,11 @@ var input_direction : Vector2
 var is_jumping : bool
 var is_falling : bool
 var is_on_ground : bool
+var can_jump : bool = true
+
 var character_direction : int = 1 #1 = forward, -1 = backward
 var item_kick_target : Vector2 = Vector2(13.0, 0.0)
+
 
 var player_speed : float = 3000.0
 var player_air_speed : float = 1000.0
@@ -24,6 +29,10 @@ var max_speed : float = 75.0
 var coyote_frames = 6
 var coyote = false
 var last_floor = false
+
+@onready var jump_timer: Timer = $JumpTimer
+
+
 
 
 func _physics_process(delta: float) -> void:
@@ -54,7 +63,10 @@ func _physics_process(delta: float) -> void:
 		item_throw.throw_force_forward *= -1
 		
 	#jumping
-	if is_jumping and is_on_ground == true || is_jumping and coyote:
+	if is_jumping and is_on_ground == true and can_jump || is_jumping and coyote and can_jump:
+		can_jump = false
+		jump_timer.start()
+		linear_velocity.y = 0
 		apply_central_impulse(Vector2(0,-jump_force))
 	
 	#horizontal movement
@@ -75,3 +87,7 @@ func _integrate_forces(state):
 
 func _on_coyote_timer_timeout() -> void:
 	coyote = false
+
+
+func _on_jump_timer_timeout() -> void:
+	can_jump = true
