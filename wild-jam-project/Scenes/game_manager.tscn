@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkp4wnlayhdqs"]
+
+[ext_resource type="Script" uid="uid://x3ygjb8d136g" path="res://scripts/game_manager.gd" id="1_e5fcp"]
+[ext_resource type="FontFile" uid="uid://dvwd2jyhsoieg" path="res://Resources/fonts/Pixellari.ttf" id="2_sq00h"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("mailbox")]
+script = ExtResource("1_e5fcp")
+mailbox = NodePath("")
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="Level_UI" type="Control" parent="GameUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/Level_UI"]
+layout_mode = 1
+offset_right = 316.0
+offset_bottom = 120.0
+color = Color(0, 0, 0, 0.376471)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/Level_UI/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="minute_label" type="Label" parent="GameUI/Level_UI/ColorRect/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 80
+text = "00:"
+horizontal_alignment = 2
+
+[node name="second_label" type="Label" parent="GameUI/Level_UI/ColorRect/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 80
+text = "00."
+horizontal_alignment = 2
+
+[node name="msec_label" type="Label" parent="GameUI/Level_UI/ColorRect/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 80
+text = "00"
