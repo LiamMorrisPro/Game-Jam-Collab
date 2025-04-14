@@ -36,8 +36,10 @@ func _physics_process(delta: float) -> void:
 	#check if on ground
 	if ground_check.collider_list != []:
 		is_on_ground = true
+		physics_material_override.friction = 1.0
 	else:
 		is_on_ground = false
+		physics_material_override.friction = 0.0
 	
 	#jumping
 	if is_jumping and is_on_ground == true:
@@ -48,6 +50,8 @@ func _physics_process(delta: float) -> void:
 		apply_central_force(Vector2(input_direction.x * player_speed, 0))
 	elif input_direction.x != 0:
 		apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
+	
+
 
 
 func _integrate_forces(state):

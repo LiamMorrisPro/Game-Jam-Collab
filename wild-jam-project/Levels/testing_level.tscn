@@ -1,14 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://ci7ijq3uniuak"]
+[gd_scene load_steps=4 format=4 uid="uid://ci7ijq3uniuak"]
 
-[ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Player/player.tscn" id="2_eaqdo"]
-[ext_resource type="Texture2D" uid="uid://ctoyu7bb4njh7" path="res://Resources/Assets/Objects/boxes 100.png" id="3_eaqdo"]
+[ext_resource type="PackedScene" uid="uid://d2b8sx0wbdwsf" path="res://Scenes/player.tscn" id="2_eaqdo"]
+[ext_resource type="PackedScene" uid="uid://3vrnaylmdcu2" path="res://Scenes/box.tscn" id="3_eaqdo"]
 [ext_resource type="TileSet" uid="uid://c4oc3py5o8m0l" path="res://Resources/Tilesets/basic_tileset.tres" id="4_5i00d"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eaqdo"]
-friction = 30.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i00d"]
-size = Vector2(16, 16)
 
 [node name="TestingLevel" type="Node2D"]
 
@@ -26,17 +20,5 @@ tile_map_data = PackedByteArray("AAD3/wQAAAACAAEAAAD4/wQAAAACAAEAAAD5/wQAAAACAAE
 tile_set = ExtResource("4_5i00d")
 collision_visibility_mode = 1
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Items"]]
+[node name="Box" parent="." instance=ExtResource("3_eaqdo")]
 position = Vector2(-146, 51)
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eaqdo")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture_filter = 1
-texture = ExtResource("3_eaqdo")
-hframes = 13
-vframes = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_5i00d")
