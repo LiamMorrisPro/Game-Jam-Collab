@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckbqqfnqmacag"]
+[gd_scene load_steps=13 format=3 uid="uid://ckbqqfnqmacag"]
 
 [ext_resource type="Script" uid="uid://bp6aofgp7vvab" path="res://scripts/UI/pause_menu.gd" id="1_jfm1e"]
 [ext_resource type="Shader" uid="uid://btotgldfaurkj" path="res://Shaders/pause_menu_blur.gdshader" id="1_ltd3m"]
+[ext_resource type="Script" uid="uid://boi4288ln8xg5" path="res://UI/button_tween.gd" id="3_03fe5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_05uyy"]
 shader = ExtResource("1_ltd3m")
@@ -120,6 +121,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_05uyy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
 text = "Resume"
+script = ExtResource("3_03fe5")
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -135,6 +137,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_e8sti")
 theme_override_styles/normal = SubResource("StyleBoxFlat_q2yj1")
 text = "Options
 "
+script = ExtResource("3_03fe5")
 
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,6 +152,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_05uyy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
 text = "Main Menu"
+script = ExtResource("3_03fe5")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

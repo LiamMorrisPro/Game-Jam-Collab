@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5gmwo6tv8kvr"]
+[gd_scene load_steps=12 format=3 uid="uid://b5gmwo6tv8kvr"]
 
 [ext_resource type="Script" uid="uid://dqonwgmjt1vu8" path="res://UI/level_selector_screen.gd" id="1_800je"]
 [ext_resource type="Shader" uid="uid://do1o7me4dck4j" path="res://Shaders/scroll.gdshader" id="2_4vkt7"]
 [ext_resource type="PackedScene" uid="uid://bbmge1qvbt5le" path="res://UI/scene_transition.tscn" id="2_26ypn"]
 [ext_resource type="Texture2D" uid="uid://bpm1nnycb0pr6" path="res://Resources/Background/Brown.png" id="3_0rt7k"]
 [ext_resource type="FontFile" uid="uid://dvwd2jyhsoieg" path="res://Resources/fonts/Pixellari.ttf" id="5_0rt7k"]
+[ext_resource type="Script" uid="uid://boi4288ln8xg5" path="res://UI/button_tween.gd" id="6_f42y0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f42y0"]
 shader = ExtResource("2_4vkt7")
@@ -97,6 +98,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btpnq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4vkt7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rt7k")
 text = "Level 1"
+script = ExtResource("6_f42y0")
 
 [node name="Level_2_Button" type="Button" parent="Hbox"]
 layout_mode = 2
@@ -113,6 +115,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btpnq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4vkt7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rt7k")
 text = "Level 2"
+script = ExtResource("6_f42y0")
 
 [node name="Level_3_Button" type="Button" parent="Hbox"]
 layout_mode = 2
@@ -129,6 +132,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btpnq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4vkt7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rt7k")
 text = "Level 3"
+script = ExtResource("6_f42y0")
 
 [connection signal="pressed" from="Hbox/Level_1_Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="Hbox/Level_2_Button" to="." method="_on_level_2_button_pressed"]
