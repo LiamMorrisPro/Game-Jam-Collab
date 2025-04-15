@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://c4oc3py5o8m0l"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://c4oc3py5o8m0l"]
 
 [ext_resource type="Texture2D" uid="uid://b7rh11gl13t8p" path="res://Resources/Assets/Tileset/Grassy v2/Grassy v2 100.png" id="1_oihse"]
+[ext_resource type="Texture2D" uid="uid://coqx38w3i46r4" path="res://Resources/Assets/Objects/Environment v2 with platforms 100.png" id="2_oihse"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5oy38"]
 friction = 0.5
@@ -761,6 +762,31 @@ texture = ExtResource("1_oihse")
 9:11/0/terrains_peering_bit/left_side = 1
 9:11/0/terrains_peering_bit/top_side = 1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s2y24"]
+texture = ExtResource("2_oihse")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
@@ -771,3 +797,4 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Background_Terrain"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_dd4mw")
+sources/2 = SubResource("TileSetAtlasSource_s2y24")
