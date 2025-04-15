@@ -72,41 +72,12 @@ shadow_color = Color(0, 0, 0, 0.415686)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
-[sub_resource type="Animation" id="Animation_03fe5"]
-resource_name = "blur"
-length = 0.3
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/BackGroundBlur:material:shader_parameter/amount")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 5.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_0b5ob"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/BackGroundBlur:material:shader_parameter/amount")
+tracks/0/path = NodePath("BackGroundBlur:material:shader_parameter/amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -128,6 +99,35 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_03fe5"]
+resource_name = "blur"
+length = 0.3
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGroundBlur:material:shader_parameter/amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqlge"]
 _data = {
 &"RESET": SubResource("Animation_0b5ob"),
@@ -146,6 +146,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_egfxf")
 
+[node name="BackGroundBlur" type="ColorRect" parent="PauseMenu"]
+material = SubResource("ShaderMaterial_05uyy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Panel" type="PanelContainer" parent="PauseMenu"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -160,10 +169,6 @@ offset_right = 376.0
 offset_bottom = 395.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BackGroundBlur" type="ColorRect" parent="PauseMenu/Panel"]
-material = SubResource("ShaderMaterial_05uyy")
-layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
 layout_mode = 2
