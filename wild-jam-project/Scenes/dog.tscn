@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://gke2ngmulfm3"]
+[gd_scene load_steps=5 format=3 uid="uid://gke2ngmulfm3"]
 
 [ext_resource type="Texture2D" uid="uid://dyx37sdtgakc" path="res://Resources/Assets/Characters/characters 100.png" id="1_7e2ew"]
+[ext_resource type="Script" uid="uid://kfoglv77myq6" path="res://scripts/dog_script.gd" id="1_uny1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23r22"]
-size = Vector2(15, 12)
+size = Vector2(12, 11)
 
-[node name="Node2D" type="RigidBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvlu8"]
+radius = 69.0072
+
+[node name="Dog" type="RigidBody2D"]
+script = ExtResource("1_uny1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_23r22")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +22,11 @@ texture = ExtResource("1_7e2ew")
 hframes = 13
 vframes = 13
 frame = 39
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_nvlu8")
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
