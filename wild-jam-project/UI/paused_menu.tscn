@@ -240,3 +240,4 @@ libraries = {
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Restart" to="PauseMenu" method="_on_restart_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Levels" to="PauseMenu" method="_on_levels_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MainMenu" to="PauseMenu" method="_on_main_menu_pressed"]
+[connection signal="animation_finished" from="PauseMenu/BlurFade" to="PauseMenu" method="_on_blur_fade_animation_finished"]
