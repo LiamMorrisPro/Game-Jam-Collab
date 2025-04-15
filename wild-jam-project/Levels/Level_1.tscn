@@ -89,6 +89,7 @@ texture = ExtResource("9_c1kre")
 centered = false
 
 [node name="clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(320, 0)
 
@@ -105,6 +106,7 @@ motion_scale = Vector2(1.1, 1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/clouds_background"]
+modulate = Color(1, 1, 1, 0.235294)
 texture_filter = 1
 texture = ExtResource("11_23710")
 centered = false
