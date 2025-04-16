@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		is_on_ground = false
 		physics_material_override.friction = 0.0
+
 	
 	#handle inputs
 	input_direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"))

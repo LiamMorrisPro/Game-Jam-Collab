@@ -5,16 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://yhjm2tpevx23" path="res://Resources/Assets/Objects/Objects v2/string 100.png" id="3_0773j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0773j"]
-size = Vector2(30, 8)
+size = Vector2(64, 26)
 
-[node name="MovingPlatform" type="RigidBody2D"]
+[node name="MovingPlatform" type="RigidBody2D" groups=["Platform"]]
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_anqd2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tdwu5")
 
 [node name="string" type="Sprite2D" parent="Sprite2D"]
@@ -23,7 +22,7 @@ scale = Vector2(1, 25)
 texture = ExtResource("3_0773j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -1.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_0773j")
 

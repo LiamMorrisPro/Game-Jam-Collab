@@ -17,9 +17,11 @@ func tackle():
 
 func raycast_detect(target : Player):
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(Vector2(0, 0), target.position)
+	var query = PhysicsRayQueryParameters2D.create(Vector2(0, 0), target.position, 1|2)
 	var result = space_state.intersect_ray(query)
-	pass
+	
+	if result.collider:
+		pass
 
 
 func _on_detection_radius_body_entered(body: Node2D) -> void:

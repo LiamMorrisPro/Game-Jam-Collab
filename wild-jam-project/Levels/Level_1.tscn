@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AADz/wUAAAACAAEAAAD0/wUAAAACAAEAAAD1/wUAAAACAAE
 tile_set = ExtResource("2_8a5oj")
 
 [node name="Box" parent="." instance=ExtResource("5_wsn87")]
-position = Vector2(44, 129)
+position = Vector2(142, 10)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("7_hofu3")]
 position = Vector2(71, 79)
