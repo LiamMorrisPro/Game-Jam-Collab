@@ -23,7 +23,7 @@ size = Vector2(10, 10)
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_2jkhj")
 lock_rotation = true
 max_contacts_reported = 3
@@ -42,6 +42,7 @@ position = Vector2(0, 1)
 shape = SubResource("ConvexPolygonShape2D_x3wgy")
 
 [node name="ground_check" type="Area2D" parent="."]
+collision_mask = 5
 script = ExtResource("3_fhl08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_check"]
@@ -50,6 +51,7 @@ shape = SubResource("RectangleShape2D_jy78r")
 
 [node name="item_kick" type="Area2D" parent="."]
 position = Vector2(13, 0)
+collision_mask = 5
 script = ExtResource("4_vtle1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_kick"]
@@ -72,6 +74,7 @@ one_shot = true
 
 [node name="item_flip" type="Area2D" parent="."]
 position = Vector2(0, 13)
+collision_mask = 5
 script = ExtResource("6_x3wgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_flip"]
