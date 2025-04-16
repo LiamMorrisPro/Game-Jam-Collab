@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b08pka4pogd6u"]
+[gd_scene load_steps=9 format=3 uid="uid://b08pka4pogd6u"]
 
+[ext_resource type="Theme" uid="uid://xldifolqw1ae" path="res://Resources/Themes/MAINMENUTHEME.tres" id="1_0b5ob"]
 [ext_resource type="Script" uid="uid://bp6aofgp7vvab" path="res://scripts/UI/pause_menu.gd" id="1_jfm1e"]
 [ext_resource type="Shader" uid="uid://btotgldfaurkj" path="res://Shaders/pause_menu_blur.gdshader" id="1_ltd3m"]
 [ext_resource type="Script" uid="uid://boi4288ln8xg5" path="res://UI/button_tween.gd" id="3_03fe5"]
@@ -8,69 +9,32 @@
 shader = ExtResource("1_ltd3m")
 shader_parameter/amount = 0.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcfo"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
-bg_color = Color(0.838897, 0.838897, 0.838897, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
-bg_color = Color(0.637843, 0.637843, 0.637843, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nc7s"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3xb4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxa3g"]
-bg_color = Color(0.838897, 0.838897, 0.838897, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8sti"]
-bg_color = Color(0.637843, 0.637843, 0.637843, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2yj1"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.415686)
-shadow_size = 5
-shadow_offset = Vector2(0, 4)
+[sub_resource type="Animation" id="Animation_0b5ob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/BackGroundBlur:material:shader_parameter/amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_03fe5"]
 resource_name = "blur"
@@ -101,33 +65,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0b5ob"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/BackGroundBlur:material:shader_parameter/amount")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqlge"]
 _data = {
 &"RESET": SubResource("Animation_0b5ob"),
@@ -142,6 +79,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_0b5ob")
 script = ExtResource("1_jfm1e")
 
 [node name="Panel" type="PanelContainer" parent="."]
@@ -172,45 +110,18 @@ theme_override_constants/separation = 12
 [node name="Resume" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_p81d2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
 text = "Resume"
 script = ExtResource("3_03fe5")
 
 [node name="Restart" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_p81d2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
 text = "Restart"
 script = ExtResource("3_03fe5")
 
 [node name="Options" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d3xb4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mxa3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_e8sti")
-theme_override_styles/normal = SubResource("StyleBoxFlat_q2yj1")
 text = "Options
 "
 script = ExtResource("3_03fe5")
@@ -218,15 +129,6 @@ script = ExtResource("3_03fe5")
 [node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_p81d2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2nc7s")
 text = "Main Menu"
 script = ExtResource("3_03fe5")
 

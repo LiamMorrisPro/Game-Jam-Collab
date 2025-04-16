@@ -21,8 +21,9 @@ func on_exited():
 	grow_btn(original_size,.1)
 	
 func grow_btn(end_size : Vector2, duration: float) -> void:
-	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self,'scale',end_size,duration)
+	pass
+	#var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	#tween.tween_property(self,'scale',end_size,duration)
 
 func on_pressed():
 	AudioManager.play_sound(BUTTON_SELECT)

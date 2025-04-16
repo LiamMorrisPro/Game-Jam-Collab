@@ -40,6 +40,10 @@ folder_colors={
 
 Items=""
 
+[gui]
+
+theme/custom_font="uid://dvwd2jyhsoieg"
+
 [input]
 
 left={
