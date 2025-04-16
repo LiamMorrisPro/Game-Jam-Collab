@@ -3,12 +3,22 @@ extends RigidBody2D
 
 var detection_array = []
 
+var tackle_force = 100.0
+var tackle_direction : Vector2
 
+var can_see_enemy : bool = false
+
+enum state {patrol, chase, tackle}
+var dog_state : state = state.patrol
 
 func tackle():
+	
 	pass
 
-func raycast_detect():
+func raycast_detect(target : Player):
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(Vector2(0, 0), target.position)
+	var result = space_state.intersect_ray(query)
 	pass
 
 
