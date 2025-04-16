@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @export var move_axis: String = "x"
 @export var distance: float = 50
@@ -15,41 +15,47 @@ var start_pos: Vector2
 @onready var string: Sprite2D = $Sprite2D/string
 
 func _ready() -> void:
-	if !string_visible:
+	if not string_visible:
 		string.hide()
 	start_pos = global_position
 
-func _process(delta: float) -> void:
-	var move_amount = speed * delta * direction
-	
+func _physics_process(delta: float) -> void:
+	var move_vector := Vector2.ZERO
+
 	if move_axis == "x":
-		position.x += move_amount
-		
+		move_vector.x = speed * direction
+
 		if raycastleft.is_colliding():
 			var collider = raycastleft.get_collider()
 			if collider and collider is not Player and not collider.is_in_group("Items"):
 				direction = 1
-		
+
 		if raycastright.is_colliding():
 			var collider = raycastright.get_collider()
 			if collider and collider is not Player and not collider.is_in_group("Items"):
 				direction = -1
-		
-		elif abs(global_position.x - start_pos.x) >= distance:
-			direction *= -1
+
+		if global_position.x >= start_pos.x + distance:
+			direction = -1
+		elif global_position.x <= start_pos.x - distance:
+			direction = 1
 
 	elif move_axis == "y":
-		position.y += move_amount
-		
+		move_vector.y = speed * direction
+
 		if raycastup.is_colliding():
 			var collider = raycastup.get_collider()
 			if collider and collider is not Player and not collider.is_in_group("Items"):
 				direction = -1
-		
+
 		if raycastdown.is_colliding():
 			var collider = raycastdown.get_collider()
 			if collider and collider is not Player and not collider.is_in_group("Items"):
 				direction = 1
-		
-		elif abs(global_position.y - start_pos.y) >= distance:
-			direction *= -1
+
+		if global_position.y >= start_pos.y + distance:
+			direction = -1
+		elif global_position.y <= start_pos.y - distance:
+			direction = 1
+
+	linear_velocity = move_vector

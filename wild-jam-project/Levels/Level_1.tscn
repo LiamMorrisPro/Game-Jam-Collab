@@ -32,7 +32,7 @@ script = ExtResource("3_waoec")
 follow_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_nl7va")]
-position = Vector2(17, 129)
+position = Vector2(142, 29)
 
 [node name="TileMap" type="Node2D" parent="."]
 position = Vector2(210, 62)
@@ -53,7 +53,7 @@ tile_set = ExtResource("2_8a5oj")
 position = Vector2(44, 129)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("7_hofu3")]
-position = Vector2(72, 92)
+position = Vector2(71, 79)
 distance = 100.0
 
 [node name="Mailbox" parent="." instance=ExtResource("8_uq0sc")]
