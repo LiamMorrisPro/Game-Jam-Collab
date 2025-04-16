@@ -63,6 +63,7 @@ one_shot = true
 
 [node name="item_throw" type="Area2D" parent="."]
 position = Vector2(0, -13)
+collision_mask = 5
 script = ExtResource("5_k53q1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item_throw"]
