@@ -122,10 +122,7 @@ script = ExtResource("14_khuxi")
 shape = SubResource("RectangleShape2D_0pje3")
 
 [node name="Dog" parent="." instance=ExtResource("13_vru53")]
-position = Vector2(877, 163)
-
-[node name="Dog2" parent="." instance=ExtResource("13_vru53")]
-position = Vector2(99, 147)
+position = Vector2(811, 163)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_exited" from="KillZone" to="KillZone" method="_on_body_exited"]
