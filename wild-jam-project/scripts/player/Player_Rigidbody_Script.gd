@@ -7,7 +7,8 @@ class_name Player
 @onready var item_throw: ItemThrow = $item_throw
 @onready var item_flip: Area2D = $item_flip
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 var input_direction : Vector2
 var is_jumping : bool
@@ -57,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	
 	#change character facing direction
 	if input_direction.x != character_direction and input_direction.x != 0:
-		sprite_2d.scale.x *= -1
+		animated_sprite_2d.scale.x *= -1
 		character_direction *= -1
 		item_kick_target *= -1
 		item_kick.position = item_kick_target
@@ -73,8 +74,18 @@ func _physics_process(delta: float) -> void:
 	#horizontal movement
 	if input_direction.x != 0 and is_on_ground == true:
 		apply_central_force(Vector2(input_direction.x * player_speed, 0))
+		animated_sprite_2d.play("walk")
 	elif input_direction.x != 0:
 		apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
+		animated_sprite_2d.play("idle")
+	else:
+		animated_sprite_2d.play("idle")
+	
+	
+	
+	
+	
+	
 	
 	last_floor = is_on_ground
 

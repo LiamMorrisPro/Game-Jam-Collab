@@ -62,7 +62,7 @@ position = Vector2(197, 136)
 distance = 100.0
 
 [node name="Mailbox" parent="." instance=ExtResource("8_an8ag")]
-position = Vector2(603, 129)
+position = Vector2(603, 126)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -115,6 +115,9 @@ script = ExtResource("14_uxyht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource("RectangleShape2D_uqtfo")
+
+[node name="Dog2" parent="." instance=ExtResource("13_dml1t")]
+position = Vector2(127, 115)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_exited" from="KillZone" to="KillZone" method="_on_body_exited"]

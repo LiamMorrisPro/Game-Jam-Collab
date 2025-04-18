@@ -37,7 +37,7 @@ script = ExtResource("3_owrw6")
 follow_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_v1481")]
-position = Vector2(53, 134)
+position = Vector2(41, 131)
 
 [node name="TileMap" type="Node2D" parent="."]
 position = Vector2(210, 62)
@@ -113,9 +113,6 @@ texture_filter = 1
 texture = ExtResource("12_awy6g")
 centered = false
 
-[node name="Dog" parent="." instance=ExtResource("13_vru53")]
-position = Vector2(810, 164)
-
 [node name="KillZone" type="Area2D" parent="."]
 position = Vector2(303, 210)
 collision_mask = 15
@@ -123,6 +120,12 @@ script = ExtResource("14_khuxi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource("RectangleShape2D_0pje3")
+
+[node name="Dog" parent="." instance=ExtResource("13_vru53")]
+position = Vector2(877, 163)
+
+[node name="Dog2" parent="." instance=ExtResource("13_vru53")]
+position = Vector2(99, 147)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_exited" from="KillZone" to="KillZone" method="_on_body_exited"]
