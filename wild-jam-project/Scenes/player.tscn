@@ -1,13 +1,47 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2b8sx0wbdwsf"]
+[gd_scene load_steps=16 format=3 uid="uid://d2b8sx0wbdwsf"]
 
 [ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
-[ext_resource type="Texture2D" uid="uid://dyx37sdtgakc" path="res://Resources/Assets/Characters/characters 100.png" id="2_gwnis"]
+[ext_resource type="Texture2D" uid="uid://btm7dnq7b5klo" path="res://Resources/Assets/Characters/characters v2/characters v2 DARK 100.png" id="2_x3wgy"]
 [ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player/player_ground_detect.gd" id="3_fhl08"]
 [ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/player/item_kick.gd" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://222b1fgsv8oq" path="res://scripts/player/item_throw.gd" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://ccd883xnfwi6m" path="res://scripts/player/item_flip.gd" id="6_x3wgy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2jkhj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_x3wgy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_x3wgy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_x3wgy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1ek2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_x3wgy"]
 points = PackedVector2Array(6, -8, 6, 4, 5.25, 5.3, 4.1, 6.45, 3, 7, -3, 7, -4.1, 6.45, -5.25, 5.3, -6, 4, -6, -8)
@@ -29,13 +63,12 @@ lock_rotation = true
 max_contacts_reported = 3
 script = ExtResource("1_gwnis")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_gwnis")
-hframes = 13
-vframes = 13
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f1ek2")
+animation = &"walk"
+frame = 1
+frame_progress = 0.397844
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
