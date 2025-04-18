@@ -106,7 +106,7 @@ texture = ExtResource("12_5acey")
 centered = false
 
 [node name="Dog" parent="." instance=ExtResource("13_dml1t")]
-position = Vector2(417, 122)
+position = Vector2(412, 117)
 
 [node name="KillZone" type="Area2D" parent="."]
 position = Vector2(303, 210)
