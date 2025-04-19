@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://l3sa0mtid4wv"]
 
 [ext_resource type="Script" uid="uid://i5oln8wries6" path="res://scripts/mailbox.gd" id="1_dflpy"]
-[ext_resource type="Texture2D" uid="uid://c7xvwbgy0sfk2" path="res://Resources/Assets/Objects/environment 100.png" id="2_dflpy"]
+[ext_resource type="Texture2D" uid="uid://d3egnc046svng" path="res://Resources/Assets/Objects/objects v3/environments v3 100.png" id="2_dflpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hu6"]
 size = Vector2(12, 14)

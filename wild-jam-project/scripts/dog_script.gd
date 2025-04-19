@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var detection_array = []
 
@@ -14,6 +15,10 @@ var dog_state : state = state.patrol
 var patrol_dir = 1
 
 var jump_vector : Vector2 = Vector2(700, 300)
+
+func _ready() -> void:
+	animated_sprite_2d.play("sleep")
+
 
 func _physics_process(delta: float) -> void:
 	var target_vector : Vector2 = Vector2.ZERO
@@ -33,10 +38,16 @@ func _physics_process(delta: float) -> void:
 	if can_see_enemy:
 		if target_vector.x > 0 and target_vector.length() > 20:
 			linear_velocity.x = lerp(linear_velocity.x, 1000.0, delta)
+			animated_sprite_2d.play("walk")
+			animated_sprite_2d.scale.x = 1
 		elif target_vector.x < -0 and target_vector.length() > 20:
 			linear_velocity.x = lerp(linear_velocity.x, -1000.0, delta)
+			animated_sprite_2d.scale.x = -1
+			animated_sprite_2d.play("walk")
 	else:
 		linear_velocity.x = 0
+		if animated_sprite_2d.animation != "sleep":
+			animated_sprite_2d.play("idle")
 
 
 
@@ -60,3 +71,8 @@ func _on_detection_radius_body_entered(body: Node2D) -> void:
 func _on_detection_radius_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		detection_array.erase(body)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == "bark":
+		animated_sprite_2d.play("idle")

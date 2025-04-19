@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://3vrnaylmdcu2"]
 
-[ext_resource type="Texture2D" uid="uid://ble74tcyl0qo0" path="res://Resources/Assets/Objects/boxes 2 100.png" id="1_xkb4e"]
 [ext_resource type="Script" uid="uid://bc2br7oibb1bi" path="res://scripts/box_main_script.gd" id="1_y6vpp"]
 [ext_resource type="Script" uid="uid://baofdgsvvf5o8" path="res://scripts/health_component.gd" id="2_2jyye"]
+[ext_resource type="Texture2D" uid="uid://22t7wxv267nw" path="res://Resources/Assets/Objects/objects v3/boxes v3 100.png" id="2_y6vpp"]
 [ext_resource type="Script" uid="uid://dtvrd61edbehw" path="res://scripts/hurt_box_component.gd" id="3_y6vpp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eaqdo"]
@@ -23,7 +23,7 @@ script = ExtResource("1_y6vpp")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, 2)
-texture = ExtResource("1_xkb4e")
+texture = ExtResource("2_y6vpp")
 hframes = 13
 vframes = 13
 frame = 39
