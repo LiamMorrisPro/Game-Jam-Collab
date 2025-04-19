@@ -1,13 +1,15 @@
 extends RigidBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var tackle_timer: Timer = $tackle_timer
 
 var detection_array = []
 
 var target_position
 var can_see_enemy : bool = false
 
-var tackle_force = 150.0
+var can_tackle = true
+var tackle_force = 500.0
 var tackle_direction : Vector2
 
 enum state {patrol, chase, tackle}
@@ -30,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	if detection_array.size() > 0:
 		target_position = detection_array[0].global_position
 		target_vector = target_position - global_position
+	else:
+		return
+	
 	
 	if target_vector.length() < 15:
 		tackle(target_vector)
@@ -52,8 +57,10 @@ func _physics_process(delta: float) -> void:
 
 
 func tackle(target_vector):
-	if can_see_enemy:
+	if can_see_enemy and can_tackle:
 		print('Tackling player!')
+		can_tackle = false
+		tackle_timer.start()
 
 		var player = detection_array[0]
 		var direction = (target_position - global_position).normalized()
@@ -86,3 +93,7 @@ func _on_detection_radius_body_exited(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "bark":
 		animated_sprite_2d.play("idle")
+
+
+func _on_tackle_timer_timeout() -> void:
+	can_tackle = true
