@@ -4,6 +4,8 @@ extends Node
 const main_menu = "res://UI/main_menu.tscn"
 const level_select = "res://UI/level_selector_screen.tscn"
 
+const LEVEL_CLEAR = preload("uid://c5a6a473tkvya")
+
 #ui dependencies
 @onready var minute_label: Label = $GameUI/Level_UI/ColorRect/HBoxContainer/minute_label
 @onready var second_label: Label = $GameUI/Level_UI/ColorRect/HBoxContainer/second_label
@@ -60,6 +62,8 @@ func level_clear():
 	#get_tree().paused = true
 	if Global.level_clear == true:
 		return
+	
+	SFXManager.play_sound(LEVEL_CLEAR)
 	
 	Global.level_clear = true
 	Global.set_level_complete(Global.current_level,time_taken)

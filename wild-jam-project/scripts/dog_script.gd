@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var tackle_timer: Timer = $tackle_timer
+const BARK = preload("uid://tcvyt5pw41bd")
 
 var detection_array = []
 
@@ -58,6 +59,9 @@ func _physics_process(delta: float) -> void:
 
 func tackle(target_vector):
 	if can_see_enemy and can_tackle:
+		
+		SFXManager.play_sound(BARK)
+		
 		print('Tackling player!')
 		can_tackle = false
 		tackle_timer.start()

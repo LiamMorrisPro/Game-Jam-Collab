@@ -42,7 +42,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"bark",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +90,9 @@ script = ExtResource("1_uny1q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_llnvy")
-animation = &"sleep"
+animation = &"bark"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
