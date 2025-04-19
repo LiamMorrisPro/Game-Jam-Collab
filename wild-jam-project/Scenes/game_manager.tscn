@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkp4wnlayhdqs"]
+[gd_scene load_steps=6 format=3 uid="uid://bkp4wnlayhdqs"]
 
 [ext_resource type="Script" uid="uid://x3ygjb8d136g" path="res://scripts/game_manager.gd" id="1_e5fcp"]
 [ext_resource type="FontFile" uid="uid://dvwd2jyhsoieg" path="res://Resources/fonts/Pixellari.ttf" id="2_sq00h"]
+[ext_resource type="Texture2D" uid="uid://obyepex1sljd" path="res://Resources/Assets/UI/9 patch/9 patch 100.png" id="3_fgdfb"]
 [ext_resource type="Theme" uid="uid://xldifolqw1ae" path="res://Resources/Themes/MAINMENUTHEME.tres" id="3_mmt5l"]
 [ext_resource type="PackedScene" uid="uid://bbmge1qvbt5le" path="res://UI/scene_transition.tscn" id="3_sq00h"]
 
@@ -65,35 +66,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="GameUI/Win_Screen"]
+[node name="NinePatchRect" type="NinePatchRect" parent="GameUI/Win_Screen"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -247.5
+offset_top = -248.5
+offset_right = 247.5
+offset_bottom = 248.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(250, 250)
-color = Color(0, 0, 0, 0.45098)
+texture = ExtResource("3_fgdfb")
 
-[node name="Delivered" type="Label" parent="GameUI/Win_Screen/ColorRect"]
+[node name="Delivered" type="Label" parent="GameUI/Win_Screen/NinePatchRect"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 32.0
-offset_bottom = 104.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.5
+offset_top = 103.5
+offset_right = 195.5
+offset_bottom = 175.5
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_sq00h")
 theme_override_font_sizes/font_size = 71
 text = "DELIVERED!"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/Win_Screen/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/Win_Screen/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,17 +112,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="LevelSelectBtn" type="Button" parent="GameUI/Win_Screen/ColorRect/VBoxContainer"]
+[node name="LevelSelectBtn" type="Button" parent="GameUI/Win_Screen/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_mmt5l")
 text = "Level Select"
 
-[node name="MainMenuBtn" type="Button" parent="GameUI/Win_Screen/ColorRect/VBoxContainer"]
+[node name="MainMenuBtn" type="Button" parent="GameUI/Win_Screen/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_mmt5l")
 text = "Main Menu"
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_sq00h")]
 
-[connection signal="pressed" from="GameUI/Win_Screen/ColorRect/VBoxContainer/LevelSelectBtn" to="." method="_on_level_select_btn_pressed"]
-[connection signal="pressed" from="GameUI/Win_Screen/ColorRect/VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="GameUI/Win_Screen/NinePatchRect/VBoxContainer/LevelSelectBtn" to="." method="_on_level_select_btn_pressed"]
+[connection signal="pressed" from="GameUI/Win_Screen/NinePatchRect/VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

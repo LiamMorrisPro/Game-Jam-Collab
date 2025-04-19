@@ -19,6 +19,7 @@ config/icon="res://Resources/icon.svg"
 
 SFXManager="*res://scripts/SFX.gd"
 Musicplayer="*res://Scenes/MUSICPLAYER.tscn"
+Global="*res://scripts/Global.gd"
 
 [display]
 

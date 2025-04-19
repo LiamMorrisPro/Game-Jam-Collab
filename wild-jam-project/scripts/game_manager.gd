@@ -25,14 +25,15 @@ var timer_on : bool = true
 
 
 
-@onready var level_select_btn: Button = $GameUI/Win_Screen/ColorRect/VBoxContainer/LevelSelectBtn
-@onready var main_menu_btn: Button = $GameUI/Win_Screen/ColorRect/VBoxContainer/MainMenuBtn
+@onready var level_select_btn: Button = $GameUI/Win_Screen/NinePatchRect/VBoxContainer/LevelSelectBtn
+@onready var main_menu_btn: Button = $GameUI/Win_Screen/NinePatchRect/VBoxContainer/MainMenuBtn
 
 
 
 
 #start a timer on level start
 func _ready() -> void:
+	Global.level_clear = false
 	Musicplayer.play_music_level()
 	win_screen.visible = false
 	level_ui.visible = true
@@ -53,10 +54,28 @@ func _process(delta: float) -> void:
 
 
 func level_clear():
+<<<<<<< Updated upstream
 	print("cleared")
 	get_tree().paused = true
+=======
+	Global.level_clear = true
+>>>>>>> Stashed changes
 	timer_on = false
 	win_screen.visible = true
+	
+	# get the win size cuz it can be different and that messes it up if it is
+	var start_pos = Vector2(win_screen.position.x, -win_screen.size.y)
+	var end_pos = Vector2(win_screen.position.x, (get_viewport().size.y - win_screen.size.y) / 2)
+
+	win_screen.position = start_pos
+	
+	win_screen.mouse_filter = Control.MOUSE_FILTER_IGNORE #should ignore the mouse input when the tween is tweening
+	#Creates like a bounce slide mechanic
+	var tween = get_tree().create_tween().bind_node(self)
+	tween.tween_property(win_screen, "position", end_pos, 0.8)\
+		.set_trans(Tween.TRANS_BOUNCE)\
+		.set_ease(Tween.EASE_OUT)
+
 
 
 func _on_main_menu_btn_pressed() -> void:

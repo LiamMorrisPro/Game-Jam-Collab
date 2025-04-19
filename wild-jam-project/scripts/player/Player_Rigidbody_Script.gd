@@ -65,21 +65,23 @@ func _physics_process(delta: float) -> void:
 		item_throw.throw_force_forward *= -1
 		
 	#jumping
-	if is_jumping and is_on_ground == true and can_jump || is_jumping and coyote and can_jump:
-		can_jump = false
-		jump_timer.start()
-		linear_velocity.y = 0
-		apply_central_impulse(Vector2(0,-jump_force))
+	if Global.level_clear == false:
+		if is_jumping and is_on_ground == true and can_jump || is_jumping and coyote and can_jump:
+			can_jump = false
+			jump_timer.start()
+			linear_velocity.y = 0
+			apply_central_impulse(Vector2(0,-jump_force))
 	
 	#horizontal movement
-	if input_direction.x != 0 and is_on_ground == true:
-		apply_central_force(Vector2(input_direction.x * player_speed, 0))
-		animated_sprite_2d.play("walk")
-	elif input_direction.x != 0:
-		apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
-		animated_sprite_2d.play("idle")
-	else:
-		animated_sprite_2d.play("idle")
+	if Global.level_clear == false:
+		if input_direction.x != 0 and is_on_ground == true:
+			apply_central_force(Vector2(input_direction.x * player_speed, 0))
+			animated_sprite_2d.play("walk")
+		elif input_direction.x != 0:
+			apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
+			animated_sprite_2d.play("idle")
+		else:
+			animated_sprite_2d.play("idle")
 	
 	
 	

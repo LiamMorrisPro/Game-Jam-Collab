@@ -1,6 +1,6 @@
 extends Control
 
-
+var level_selector = preload("res://UI/level_selector_screen.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI/level_selector_screen.tscn")
+	get_tree().change_scene_to_packed(level_selector)
 
 
 func _on_options_pressed() -> void:
@@ -54,7 +54,10 @@ func _on_volume_value_changed(value: float) -> void:
 
 
 func _on_mute_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+	if toggled_on:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 
 
 func _on_resolutions_item_selected(index: int) -> void:
