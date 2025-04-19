@@ -1,6 +1,8 @@
 extends AudioStreamPlayer2D
 
 const level1_music = preload("uid://ckdj1dmhu2nuc")
+const FRESH_AIR = preload("uid://smeseyam17hl")
+
 
 func play_music(music : AudioStream, volume = 0.0) -> void:
 	if stream == music:
@@ -11,7 +13,7 @@ func play_music(music : AudioStream, volume = 0.0) -> void:
 	play()
 
 func play_music_level():
-	play_music(level1_music)
+	play_music(FRESH_AIR)
 
 func muffle_music():
 	pass

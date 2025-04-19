@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://smeseyam17hl"
+path="res://.godot/imported/Fresh Air.mp3-67c28ba4a3a0f9ee5dea7a4bb5cf29cc.mp3str"
+
+[deps]
+
+source_file="res://Music/Fresh Air.mp3"
+dest_files=["res://.godot/imported/Fresh Air.mp3-67c28ba4a3a0f9ee5dea7a4bb5cf29cc.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
