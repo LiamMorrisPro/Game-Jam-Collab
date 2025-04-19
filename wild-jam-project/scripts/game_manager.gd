@@ -54,6 +54,7 @@ func _process(delta: float) -> void:
 
 func level_clear():
 	print("cleared")
+	get_tree().paused = true
 	timer_on = false
 	win_screen.visible = true
 
