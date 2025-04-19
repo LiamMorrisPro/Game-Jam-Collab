@@ -1,9 +1,17 @@
 extends Control
 
+@onready var volume: HSlider = $SettingsMenu/Volume
+@onready var volume_label: Label = $SettingsMenu/VolumeLabel
+
+var bus_index : int
+
 var level_selector = preload("res://UI/level_selector_screen.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
+	volume.value = .5
+	AudioServer.set_bus_volume_db(0, .5)
+	
 	$MainButtons.visible = true
 	$CreditsMenu.visible = false
 	$SettingsMenu.visible = false
@@ -50,8 +58,12 @@ func _on_back_pressed() -> void:
 
 
 func _on_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0,value)
-
+	AudioServer.set_bus_volume_db(0,linear_to_db(value)) #zero is master bus
+	
+	value - db_to_linear(
+		AudioServer.get_bus_volume_db(0)#master bus
+	)
+	
 
 func _on_mute_toggled(toggled_on: bool) -> void:
 	if toggled_on:
