@@ -54,12 +54,9 @@ func _process(delta: float) -> void:
 
 
 func level_clear():
-<<<<<<< Updated upstream
 	print("cleared")
 	get_tree().paused = true
-=======
 	Global.level_clear = true
->>>>>>> Stashed changes
 	timer_on = false
 	win_screen.visible = true
 	
