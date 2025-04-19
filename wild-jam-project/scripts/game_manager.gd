@@ -66,13 +66,11 @@ func level_clear():
 
 	win_screen.position = start_pos
 	
-	win_screen.mouse_filter = Control.MOUSE_FILTER_IGNORE #should ignore the mouse input when the tween is tweening
 	#Creates like a bounce slide mechanic
 	var tween = get_tree().create_tween().bind_node(self)
 	tween.tween_property(win_screen, "position", end_pos, 0.8)\
 		.set_trans(Tween.TRANS_BOUNCE)\
 		.set_ease(Tween.EASE_OUT)
-
 
 
 func _on_main_menu_btn_pressed() -> void:
