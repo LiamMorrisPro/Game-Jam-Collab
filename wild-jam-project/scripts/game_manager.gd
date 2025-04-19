@@ -23,6 +23,9 @@ var timer_on : bool = true
 @export var mailbox: MailBox
 
 
+@onready var level_select_btn: Button = $GameUI/Win_Screen/ColorRect/LevelSelectBtn
+@onready var main_menu_btn: Button = $GameUI/Win_Screen/ColorRect/MainMenuBtn
+
 
 
 

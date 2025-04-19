@@ -91,7 +91,7 @@ theme_override_font_sizes/font_size = 71
 text = "DELIVERED!"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="GameUI/Win_Screen/ColorRect"]
+[node name="LevelSelectBtn" type="Button" parent="GameUI/Win_Screen/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -102,7 +102,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 36
 text = "Level Select"
 
-[node name="Button2" type="Button" parent="GameUI/Win_Screen/ColorRect"]
+[node name="MainMenuBtn" type="Button" parent="GameUI/Win_Screen/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
