@@ -54,9 +54,12 @@ func level_clear():
 	print("cleared")
 	timer_on = false
 	win_screen.visible = true
-	back_to_level_select()
 
-func back_to_level_select():
+
+func _on_main_menu_btn_pressed() -> void:
 	transit.Transition()
 	await transit.on_transition_finished
 	get_tree().change_scene_to_file(level_select)
+
+func _on_level_select_btn_pressed() -> void:
+	pass # Replace with function body.

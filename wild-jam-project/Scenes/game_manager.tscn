@@ -115,3 +115,6 @@ theme_override_font_sizes/font_size = 36
 text = "Main Menu"
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_sq00h")]
+
+[connection signal="pressed" from="GameUI/Win_Screen/ColorRect/LevelSelectBtn" to="." method="_on_level_select_btn_pressed"]
+[connection signal="pressed" from="GameUI/Win_Screen/ColorRect/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
