@@ -37,7 +37,7 @@ script = ExtResource("3_owrw6")
 follow_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_v1481")]
-position = Vector2(41, 131)
+position = Vector2(42, 134)
 
 [node name="TileMap" type="Node2D" parent="."]
 position = Vector2(210, 62)
@@ -121,7 +121,7 @@ script = ExtResource("14_khuxi")
 shape = SubResource("RectangleShape2D_0pje3")
 
 [node name="Dog" parent="." instance=ExtResource("13_vru53")]
-position = Vector2(811, 148)
+position = Vector2(816, 148)
 
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_exited" from="KillZone" to="KillZone" method="_on_body_exited"]

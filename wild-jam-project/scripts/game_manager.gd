@@ -56,6 +56,9 @@ func _process(delta: float) -> void:
 func level_clear():
 	print("cleared")
 	#get_tree().paused = true
+	if Global.level_clear == true:
+		return
+	
 	Global.level_clear = true
 	Global.set_level_complete(Global.current_level,time_taken)
 	timer_on = false
