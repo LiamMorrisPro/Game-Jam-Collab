@@ -56,6 +56,7 @@ theme_override_font_sizes/font_size = 80
 text = "00"
 
 [node name="Win_Screen" type="Control" parent="GameUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

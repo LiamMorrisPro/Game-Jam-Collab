@@ -1,6 +1,7 @@
 extends Node
 
 @onready var transit: SceneTransition = $SceneTransition
+const main_menu = "res://UI/main_menu.tscn"
 const level_select = "res://UI/level_selector_screen.tscn"
 
 #ui dependencies
@@ -59,7 +60,11 @@ func level_clear():
 func _on_main_menu_btn_pressed() -> void:
 	transit.Transition()
 	await transit.on_transition_finished
-	get_tree().change_scene_to_file(level_select)
+	get_tree().change_scene_to_file(main_menu)
+	Musicplayer.stop_music()
 
 func _on_level_select_btn_pressed() -> void:
-	pass # Replace with function body.
+	transit.Transition()
+	await transit.on_transition_finished
+	get_tree().change_scene_to_file(level_select)
+	Musicplayer.stop_music()
