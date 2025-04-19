@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2b8sx0wbdwsf"]
+[gd_scene load_steps=17 format=3 uid="uid://d2b8sx0wbdwsf"]
 
 [ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
 [ext_resource type="Texture2D" uid="uid://btm7dnq7b5klo" path="res://Resources/Assets/Characters/characters v2/characters v2 DARK 100.png" id="2_x3wgy"]
@@ -54,6 +54,8 @@ size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
 size = Vector2(10, 10)
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_x3wgy"]
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 collision_layer = 2
@@ -127,6 +129,9 @@ one_shot = true
 [node name="JumpTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_x3wgy")
 
 [connection signal="body_entered" from="ground_check" to="ground_check" method="_on_body_entered"]
 [connection signal="body_exited" from="ground_check" to="ground_check" method="_on_body_exited"]
