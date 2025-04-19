@@ -57,6 +57,7 @@ func level_clear():
 	print("cleared")
 	#get_tree().paused = true
 	Global.level_clear = true
+	Global.set_level_complete(Global.current_level,time_taken)
 	timer_on = false
 	win_screen.visible = true
 	

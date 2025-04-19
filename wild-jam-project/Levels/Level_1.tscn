@@ -20,6 +20,7 @@ size = Vector2(1000, 20)
 [node name="Level1" type="Node2D"]
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("mailbox") instance=ExtResource("1_43ny2")]
+process_mode = 0
 mailbox = NodePath("../Mailbox")
 
 [node name="PAUSE_MENU" parent="." instance=ExtResource("2_43ny2")]
