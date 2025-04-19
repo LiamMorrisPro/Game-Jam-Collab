@@ -7,7 +7,7 @@ var detection_array = []
 var target_position
 var can_see_enemy : bool = false
 
-var tackle_force = 100.0
+var tackle_force = 150.0
 var tackle_direction : Vector2
 
 enum state {patrol, chase, tackle}
@@ -31,8 +31,8 @@ func _physics_process(delta: float) -> void:
 		target_position = detection_array[0].global_position
 		target_vector = target_position - global_position
 	
-	if target_vector.length() > 15:
-		pass
+	if target_vector.length() < 15:
+		tackle(target_vector)
 	
 	#chase enemy
 	if can_see_enemy:
@@ -51,9 +51,19 @@ func _physics_process(delta: float) -> void:
 
 
 
-func tackle():
-	
-	pass
+func tackle(target_vector):
+	if can_see_enemy:
+		print('Tackling player!')
+
+		var player = detection_array[0]
+		var direction = (target_position - global_position).normalized()
+		
+		if player and player is Player:
+			player.apply_central_impulse(direction * tackle_force)
+			animated_sprite_2d.play("bark")
+			animated_sprite_2d.scale.x = sign(direction.x)
+		
+		animated_sprite_2d.scale.x = sign(direction.x)
 
 func raycast_detect(target : Player):
 	var space_state = get_world_2d().direct_space_state
