@@ -28,6 +28,8 @@ var timer_on : bool = true
 @onready var level_select_btn: Button = $GameUI/Win_Screen/NinePatchRect/VBoxContainer/LevelSelectBtn
 @onready var main_menu_btn: Button = $GameUI/Win_Screen/NinePatchRect/VBoxContainer/MainMenuBtn
 
+@onready var time: Label = $GameUI/Win_Screen/NinePatchRect/Time
+@onready var best_time: Label = $GameUI/Win_Screen/NinePatchRect/BestTime
 
 
 
@@ -61,6 +63,7 @@ func level_clear():
 	
 	Global.level_clear = true
 	Global.set_level_complete(Global.current_level,time_taken)
+	time.text = "Time: "+str((round(time_taken * 100.0) / 100.0)) #make func in Global script to save best time and recent time
 	timer_on = false
 	win_screen.visible = true
 	
