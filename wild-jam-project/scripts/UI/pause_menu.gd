@@ -12,6 +12,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			resume()
 		else:
 			pause()
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 
 func _on_resume_pressed() -> void:
 	resume()
