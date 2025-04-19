@@ -26,8 +26,8 @@ func grow_btn(end_size : Vector2, duration: float) -> void:
 	#tween.tween_property(self,'scale',end_size,duration)
 
 func on_pressed():
-	AudioManager.play_sound(BUTTON_SELECT)
+	SFXManager.play_sound(BUTTON_SELECT)
 
 func on_hovered():
-	AudioManager.play_sound(BUTTON_HOVER)
+	SFXManager.play_sound(BUTTON_HOVER)
 	

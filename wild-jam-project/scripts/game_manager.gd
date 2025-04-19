@@ -28,6 +28,7 @@ var timer_on : bool = true
 
 #start a timer on level start
 func _ready() -> void:
+	Musicplayer.play_music_level()
 	win_screen.visible = false
 	level_ui.visible = true
 	mailbox.parcel_delivered.connect(self.level_clear)

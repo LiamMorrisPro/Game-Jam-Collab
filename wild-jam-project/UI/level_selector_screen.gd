@@ -2,10 +2,12 @@ extends Control
 
 @export var transit : SceneTransition
 
-
 var Level_1 = ("res://Levels/Level_1.tscn")
 var Level_2 = ("res://Levels/Level_2.tscn")
 var Level_3 = ("res://Levels/Level_3.tscn")
+
+
+
 
 func _on_level_1_button_pressed() -> void:
 	transit.Transition()
