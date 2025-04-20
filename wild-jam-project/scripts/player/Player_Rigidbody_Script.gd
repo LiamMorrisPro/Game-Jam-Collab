@@ -107,17 +107,18 @@ func _integrate_forces(state):
 
 
 
-func animate_player(animation : String):
+func animate_player(anim : String):
 	
-	if animation == "Idle":
-		if character_direction < 0:
+	if anim == "idle":
+		print("hi")
+		if character_direction <= 0:
 			animated_sprite_2d.play("idle_left")
-		if character_direction >= 0:
+		elif character_direction > 0:
 			animated_sprite_2d.play("idle_right")
-	elif animation == "walk":
-		if character_direction < 0:
+	elif anim == "walk":
+		if character_direction <= 0:
 			animated_sprite_2d.play("walk_left")
-		if character_direction >= 0:
+		elif character_direction > 0:
 			animated_sprite_2d.play("walk_right")
 	
 	
