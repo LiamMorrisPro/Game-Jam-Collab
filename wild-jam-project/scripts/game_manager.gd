@@ -35,8 +35,7 @@ var timer_on : bool = true
 
 
 
-enum level {level1, level2, level3}
-@export var current_level : level
+@export var current_level : int
 
 
 #start a timer on level start
@@ -72,6 +71,9 @@ func level_clear():
 	Global.level_clear = true
 	Global.set_level_complete(Global.current_level,time_taken)
 	time.text = "Time: " + "%02d:" % minutes + "%02d." % seconds + "%02d" % msec
+	
+	
+	
 	timer_on = false
 	win_screen.visible = true
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2b8sx0wbdwsf"]
+[gd_scene load_steps=22 format=3 uid="uid://d2b8sx0wbdwsf"]
 
 [ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
 [ext_resource type="Texture2D" uid="uid://b7r770s632k4j" path="res://Resources/Assets/Characters/characters v3/characters v3 100.png" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://btm7dnq7b5klo" path="res://Resources/Assets/Characters/characters v2/characters v2 DARK 100.png" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://c7k1kbc88uen" path="res://scripts/player/player_ground_detect.gd" id="3_fhl08"]
 [ext_resource type="Script" uid="uid://cm3n7f40dw04g" path="res://scripts/player/item_kick.gd" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://222b1fgsv8oq" path="res://scripts/player/item_throw.gd" id="5_k53q1"]
@@ -113,7 +114,13 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f1ek2")
 animation = &"idle_angry"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="hands" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_3smsa")
+hframes = 13
+vframes = 13
+frame = 26
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

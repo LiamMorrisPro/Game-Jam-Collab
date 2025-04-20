@@ -9,9 +9,9 @@ var level_clear : bool
 
 var current_level : int
 
-
-
-
+var level_1_best : String = ""
+var level_2_best : String = ""
+var level_3_best : String = ""
 
 var levels := {
 	1: {"completed": false, "time": -1.0},

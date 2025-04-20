@@ -9,6 +9,7 @@ class_name Player
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hands: Sprite2D = $hands
 
 
 var input_direction : Vector2
@@ -35,6 +36,11 @@ var last_floor = false
 @onready var jump_timer: Timer = $JumpTimer
 
 func _physics_process(delta: float) -> void:
+	
+	if item_throw.items_in_reach.size() > 0:
+		hands.visible = true
+	else:
+		hands.visible = false
 	
 	#determine mouse cursor
 	if item_kick.items_in_reach.size() > 0:
