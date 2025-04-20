@@ -6,12 +6,7 @@ const POINTER_THROW_1_400 = preload("uid://dyta2ftg0igc2")
 const POINTER_TOSS_1_400 = preload("uid://bm736vheayd7h")
 
 var level_clear : bool
-
 var current_level : int
-
-var level_1_best : String = ""
-var level_2_best : String = ""
-var level_3_best : String = ""
 
 var levels := {
 	1: {"completed": false, "time": -1.0},

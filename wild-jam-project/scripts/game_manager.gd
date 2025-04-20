@@ -69,10 +69,24 @@ func level_clear():
 	SFXManager.play_sound(LEVEL_CLEAR)
 	
 	Global.level_clear = true
-	Global.set_level_complete(Global.current_level,time_taken)
+	
+	#make the new best time
+	var new_best
+	if time_taken < Global.levels.get(current_level).time || Global.levels.get(current_level).time < 0:
+		new_best = time_taken
+	else:
+		new_best = Global.levels.get(current_level).time
+	
+	var best_msec = fmod(new_best, 1) * 100
+	var best_seconds = fmod(new_best, 60) 
+	var best_minutes = fmod(new_best, 3600) / 60
+	
+	Global.set_level_complete(Global.current_level,new_best)
 	time.text = "Time: " + "%02d:" % minutes + "%02d." % seconds + "%02d" % msec
-	
-	
+	best_time.text = "Best: " + "%02d:" % best_minutes + "%02d." % best_seconds + "%02d" % best_msec
+
+		
+
 	
 	timer_on = false
 	win_screen.visible = true

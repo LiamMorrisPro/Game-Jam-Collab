@@ -22,7 +22,7 @@ size = Vector2(10000, 20)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("mailbox") instance=ExtResource("1_46jcg")]
 mailbox = NodePath("../Mailbox")
-current_level = 2
+current_level = 3
 
 [node name="PAUSE_MENU" parent="." instance=ExtResource("2_ex5s6")]
 
