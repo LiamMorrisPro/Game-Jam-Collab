@@ -124,38 +124,5 @@ shape = SubResource("RectangleShape2D_0pje3")
 [node name="Dog" parent="." instance=ExtResource("13_vru53")]
 position = Vector2(816, 148)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="info icon" type="Control" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -82.0
-offset_right = 89.0
-grow_vertical = 0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/info icon"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 38.0
-offset_right = 50.0
-offset_bottom = 52.0
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/info icon"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 29.0
-offset_right = 50.0
-offset_bottom = 35.0
-
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_exited" from="KillZone" to="KillZone" method="_on_body_exited"]

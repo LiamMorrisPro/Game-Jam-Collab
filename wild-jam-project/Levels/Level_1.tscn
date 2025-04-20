@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qwailoprv7da" path="res://Scenes/cart.tscn" id="14_uqtfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqtfo"]
-size = Vector2(1000, 20)
+size = Vector2(10000, 20)
 
 [node name="Level1" type="Node2D"]
 

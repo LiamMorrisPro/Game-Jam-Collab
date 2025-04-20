@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://xldifolqw1ae" path="res://Resources/Themes/MAINMENUTHEME.tres" id="1_f42y0"]
 [ext_resource type="Shader" uid="uid://do1o7me4dck4j" path="res://Shaders/scroll.gdshader" id="2_4vkt7"]
 [ext_resource type="PackedScene" uid="uid://bbmge1qvbt5le" path="res://UI/scene_transition.tscn" id="2_26ypn"]
-[ext_resource type="Texture2D" uid="uid://bpm1nnycb0pr6" path="res://Resources/Background/Brown.png" id="3_0rt7k"]
+[ext_resource type="Texture2D" uid="uid://drftyp2lwa6yu" path="res://Resources/Assets/UI/title/tiles_BG_flipped_800.png" id="4_f42y0"]
 [ext_resource type="Script" uid="uid://boi4288ln8xg5" path="res://UI/button_tween.gd" id="6_f42y0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f42y0"]
@@ -31,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_0rt7k")
+texture = ExtResource("4_f42y0")
 stretch_mode = 1
 
 [node name="SceneTransition" parent="." instance=ExtResource("2_26ypn")]

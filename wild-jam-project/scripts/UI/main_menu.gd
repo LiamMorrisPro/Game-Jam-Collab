@@ -17,7 +17,6 @@ func _ready() -> void:
 	$MainButtons.visible = true
 	$CreditsMenu.visible = false
 	$SettingsMenu.visible = false
-	$GameTitle.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,24 +32,20 @@ func _on_options_pressed() -> void:
 
 	$MainButtons.visible = false
 	$SettingsMenu.visible = true
-	$GameTitle.visible = false
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_credits_pressed() -> void:
 	$MainButtons.visible = false
 	$CreditsMenu.visible = true
-	$GameTitle.visible = false
 
 
 func _on_back_pressed() -> void:
 	$MainButtons.visible = true
 	$CreditsMenu.visible = false
 	$SettingsMenu.visible = false
-	$GameTitle.visible = true
 
 #func _on_full_screen_toggled(toggled_on: bool) -> void:
 	#if !toggled_on:
