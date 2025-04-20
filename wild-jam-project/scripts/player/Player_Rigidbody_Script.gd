@@ -34,20 +34,17 @@ var last_floor = false
 
 @onready var jump_timer: Timer = $JumpTimer
 
-
-
-
 func _physics_process(delta: float) -> void:
 	
 	#determine mouse cursor
 	if item_kick.items_in_reach.size() > 0:
-		Global.current_cursor = 1
+		Global.change_cursor(1)
 	elif item_throw.items_in_reach.size() > 0:
-		Global.current_cursor = 2
+		Global.change_cursor(2)
 	elif item_flip.items_in_reach.size() > 0:
-		Global.current_cursor = 3
+		Global.change_cursor(3)
 	else:
-		Global.current_cursor = 0
+		Global.change_cursor(0)
 	
 	
 	

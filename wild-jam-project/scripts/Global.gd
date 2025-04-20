@@ -1,5 +1,9 @@
 extends Node
 
+const POINTER_NORMAL_400 = preload("uid://damh0hrujpgq2")
+const POINTER_PICK_UP_1_400 = preload("uid://btkxjh5xfwmuk")
+const POINTER_THROW_1_400 = preload("uid://dyta2ftg0igc2")
+const POINTER_TOSS_1_400 = preload("uid://bm736vheayd7h")
 
 var level_clear : bool
 
@@ -25,6 +29,16 @@ func is_level_unlocked(level_num: int) -> bool:
 
 
 var current_cursor : int = 0
+
+
+
+func change_cursor(current_cursor : int):
+	match current_cursor:
+		0: Input.set_custom_mouse_cursor(POINTER_NORMAL_400)
+		1: Input.set_custom_mouse_cursor(POINTER_TOSS_1_400)
+		2: Input.set_custom_mouse_cursor(POINTER_THROW_1_400)
+		3: Input.set_custom_mouse_cursor(POINTER_PICK_UP_1_400)
+	pass
 # 0 = regular pointer
 # 1 = toss
 # 2 = throw
