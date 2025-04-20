@@ -26,6 +26,7 @@ Global="*res://scripts/Global.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://obyepex1sljd"
 
 [file_customization]
 
@@ -43,6 +44,7 @@ folder_colors={
 Items=""
 Platform=""
 Player=""
+Mouse_Object=""
 
 [gui]
 

@@ -21,3 +21,11 @@ func set_level_complete(level: int, time_taken: float) -> void:
 
 func is_level_unlocked(level_num: int) -> bool:
 	return level_num <= unlocked_levels
+
+
+
+var current_cursor : int = 0
+# 0 = regular pointer
+# 1 = toss
+# 2 = throw
+# 3 = pickup

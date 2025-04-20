@@ -24,6 +24,7 @@ func _throw_items():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Items"):
 		items_in_reach.append(body)
+		
 
 
 func _on_body_exited(body: Node2D) -> void:

@@ -5,7 +5,8 @@ class_name Player
 
 @onready var item_kick: ItemKick = $item_kick
 @onready var item_throw: ItemThrow = $item_throw
-@onready var item_flip: Area2D = $item_flip
+@onready var item_flip: ItemFlip = $item_flip
+
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -37,6 +38,18 @@ var last_floor = false
 
 
 func _physics_process(delta: float) -> void:
+	
+	#determine mouse cursor
+	if item_kick.items_in_reach.size() > 0:
+		Global.current_cursor = 1
+	elif item_throw.items_in_reach.size() > 0:
+		Global.current_cursor = 2
+	elif item_flip.items_in_reach.size() > 0:
+		Global.current_cursor = 3
+	else:
+		Global.current_cursor = 0
+	
+	
 	
 	#check if on ground
 	if ground_check.collider_list != []:
@@ -82,13 +95,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("idle")
 		else:
 			animated_sprite_2d.play("idle")
-	
-	
-	
-	
-	
-	
-	
+		
 	last_floor = is_on_ground
 
 
