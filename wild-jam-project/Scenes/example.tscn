@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjis3lfqxg8sd"]
+
+[ext_resource type="Texture2D" uid="uid://b7r770s632k4j" path="res://Resources/Assets/Characters/characters v3/characters v3 100.png" id="1_0puis"]
+[ext_resource type="Texture2D" uid="uid://ble74tcyl0qo0" path="res://Resources/Assets/Objects/boxes 2 100.png" id="2_6v5ml"]
+
+[node name="example" type="Node2D"]
+
+[node name="frame1" type="Node2D" parent="."]
+
+[node name="player" type="Sprite2D" parent="frame1"]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_0puis")
+hframes = 13
+vframes = 13
+
+[node name="box" type="Sprite2D" parent="frame1"]
+texture_filter = 1
+position = Vector2(2, 8)
+texture = ExtResource("2_6v5ml")
+hframes = 13
+vframes = 13
+frame = 39
+
+[node name="frame2" type="Node2D" parent="."]
+
+[node name="player" type="Sprite2D" parent="frame2"]
+texture_filter = 1
+position = Vector2(0, -20)
+texture = ExtResource("1_0puis")
+hframes = 13
+vframes = 13
+
+[node name="box" type="Sprite2D" parent="frame2"]
+texture_filter = 1
+position = Vector2(2, -31)
+texture = ExtResource("2_6v5ml")
+hframes = 13
+vframes = 13
+frame = 39

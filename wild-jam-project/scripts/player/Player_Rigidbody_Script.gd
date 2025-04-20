@@ -43,14 +43,16 @@ func _physics_process(delta: float) -> void:
 		hands.visible = false
 	
 	#determine mouse cursor
-	if item_kick.items_in_reach.size() > 0:
-		Global.change_cursor(1)
-	elif item_throw.items_in_reach.size() > 0:
-		Global.change_cursor(2)
-	elif item_flip.items_in_reach.size() > 0:
-		Global.change_cursor(3)
-	else:
-		Global.change_cursor(0)
+	
+	if Global.level_clear == false:
+		if item_kick.items_in_reach.size() > 0:
+			Global.change_cursor(1)
+		elif item_throw.items_in_reach.size() > 0:
+			Global.change_cursor(2)
+		elif item_flip.items_in_reach.size() > 0:
+			Global.change_cursor(3)
+		else:
+			Global.change_cursor(0)
 	
 	
 	
