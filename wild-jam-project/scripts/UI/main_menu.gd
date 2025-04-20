@@ -17,6 +17,8 @@ func _ready() -> void:
 	$MainButtons.visible = true
 	$CreditsMenu.visible = false
 	$SettingsMenu.visible = false
+	
+	Musicplayer.play_music_menu()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

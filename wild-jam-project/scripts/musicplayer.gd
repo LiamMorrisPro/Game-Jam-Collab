@@ -1,7 +1,7 @@
 extends AudioStreamPlayer2D
 
-const level1_music = preload("uid://ckdj1dmhu2nuc")
 const FRESH_AIR = preload("uid://smeseyam17hl")
+const EVERYDAY_LIFE_ = preload("uid://d4idlw62nt68f")
 
 
 func play_music(music : AudioStream, volume = 0.0) -> void:
@@ -14,6 +14,9 @@ func play_music(music : AudioStream, volume = 0.0) -> void:
 
 func play_music_level():
 	play_music(FRESH_AIR)
+
+func play_music_menu():
+	play_music(EVERYDAY_LIFE_)
 
 func muffle_music():
 	pass
