@@ -113,6 +113,8 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f1ek2")
 animation = &"idle_angry"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("ConvexPolygonShape2D_x3wgy")

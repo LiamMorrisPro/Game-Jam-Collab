@@ -33,6 +33,7 @@ func _on_levels_pressed() -> void:
 
 func pause():
 	get_tree().paused = true
+	Global.change_cursor(0)
 	#Musicplayer.muffle_music()
 	Musicplayer.fade_out_music()
 	visible = true

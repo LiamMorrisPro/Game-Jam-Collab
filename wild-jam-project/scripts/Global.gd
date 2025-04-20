@@ -9,6 +9,10 @@ var level_clear : bool
 
 var current_level : int
 
+
+
+
+
 var levels := {
 	1: {"completed": false, "time": -1.0},
 	2: {"completed": false, "time": -1.0},
