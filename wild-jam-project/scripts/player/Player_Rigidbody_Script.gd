@@ -74,7 +74,6 @@ func _physics_process(delta: float) -> void:
 	
 	#change character facing direction
 	if input_direction.x != character_direction and input_direction.x != 0:
-		animated_sprite_2d.scale.x *= -1
 		character_direction *= -1
 		item_kick_target *= -1
 		item_kick.position = item_kick_target
@@ -92,21 +91,38 @@ func _physics_process(delta: float) -> void:
 	if Global.level_clear == false:
 		if input_direction.x != 0 and is_on_ground == true:
 			apply_central_force(Vector2(input_direction.x * player_speed, 0))
-			animated_sprite_2d.play("walk")
+			animate_player("walk")
 		elif input_direction.x != 0:
 			apply_central_force(Vector2(input_direction.x * player_air_speed, 0))
-			animated_sprite_2d.play("idle")
+			animate_player("idle")
 		else:
-			animated_sprite_2d.play("idle")
+			animate_player("idle")
 		
 	last_floor = is_on_ground
-
-
 
 func _integrate_forces(state):
 	
 	if state.linear_velocity.x > max_speed || state.linear_velocity.x < -max_speed:
 		state.linear_velocity.x = max_speed * input_direction.x
+
+
+
+func animate_player(animation : String):
+	
+	if animation == "Idle":
+		if character_direction < 0:
+			animated_sprite_2d.play("idle_left")
+		if character_direction >= 0:
+			animated_sprite_2d.play("idle_right")
+	elif animation == "walk":
+		if character_direction < 0:
+			animated_sprite_2d.play("walk_left")
+		if character_direction >= 0:
+			animated_sprite_2d.play("walk_right")
+	
+	
+	
+	pass
 
 
 func _on_coyote_timer_timeout() -> void:

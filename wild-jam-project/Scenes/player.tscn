@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2b8sx0wbdwsf"]
+[gd_scene load_steps=21 format=3 uid="uid://d2b8sx0wbdwsf"]
 
 [ext_resource type="Script" uid="uid://bu1eodjnin17j" path="res://scripts/player/Player_Rigidbody_Script.gd" id="1_gwnis"]
 [ext_resource type="Texture2D" uid="uid://b7r770s632k4j" path="res://Resources/Assets/Characters/characters v3/characters v3 100.png" id="2_x3wgy"]
@@ -10,17 +10,21 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2jkhj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_x3wgy")
+region = Rect2(32, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("2_x3wgy")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(64, 32, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
 atlas = ExtResource("2_x3wgy")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_x3wgy")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
 atlas = ExtResource("2_x3wgy")
@@ -30,38 +34,33 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_x3wgy")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(16, 16, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1ek2"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3smsa")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8erm5")
 }],
 "loop": true,
-"name": &"idle_angry",
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": true,
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
 }],
 "loop": true,
-"name": &"idle_scared",
+"name": &"walk_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -72,18 +71,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_gymyn")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pu2lt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ukyrk")
-}],
-"loop": true,
-"name": &"walk_scared",
+"name": &"walk_right",
 "speed": 5.0
 }]
 
@@ -112,7 +100,7 @@ script = ExtResource("1_gwnis")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f1ek2")
-animation = &"idle_angry"
+animation = &"idle_left"
 
 [node name="hands" type="Sprite2D" parent="."]
 visible = false

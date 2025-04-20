@@ -69,6 +69,7 @@ func level_clear():
 	SFXManager.play_sound(LEVEL_CLEAR)
 	
 	Global.level_clear = true
+	Global.change_cursor(0)
 	
 	#make the new best time
 	var new_best

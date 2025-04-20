@@ -9,6 +9,8 @@ var level_selector = preload("res://UI/level_selector_screen.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	Global.change_cursor(0)
+	
 	volume.value = .5
 	AudioServer.set_bus_volume_db(0, .5)
 	
